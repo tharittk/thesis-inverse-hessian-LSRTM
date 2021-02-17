@@ -1,0 +1,83 @@
+from rsf.proj import *
+import m8r
+
+# Settings
+Result('refl', 'grey title="Reflectivity model"')
+Result('vel-mig', 'grey title="Migration velocity" color=j mean=y bias=1.5 scalebar=y barlabel="velocity" barunit="km/s"')
+Result('vel-true', 'grey title="Stratigraphic velocity" color=j mean=y bias=1.5 scalebar=y barlabel="velocity" barunit="km/s"')
+
+# Migrated images
+Result('mig1_45','grey title="Mig1 - raw"')
+Result('mig2_45','grey title="Mig2 - raw"')
+Result('bmig1_45','grey title="Mig1 - Low freq removed"')
+Result('bmig2_45','grey title="Mig2 - Low freq removed"')
+
+
+# LS images
+Result('cgrad_out0','grey title="LSRTM - CG 20 iters "')
+Result('pcgrad_out0','grey title="LSRTM - PCG 20 iters "')
+Result('wwpcgrad_out0','grey title="LSRTM - Space only PCG 20 iters"')
+Result('ffpcgrad_out0','grey title="LSRTM - Freq only PCG 20 iters"')
+
+# LS images 100 iterations
+Result('cgrad_out0_100','grey title="LSRTM - CG 100 iters "')
+Result('pcgrad_out0_100','grey title="LSRTM - PCG 100 iters "')
+Result('wwpcgrad_out0_100','grey title="LSRTM - Space only PCG 100 iters "')
+
+# Chain outputs
+Result('decon-2d', 'grey title="postDecon by chain 2D"')
+Result('iw-2d', 'grey title="iw-2d" mean=y color=j scalebar=y barlabel="weight" barunit=""')
+Result('iwf-2d', 
+	'''
+	put label1=kz unit1=1/km label2=kx unit2=1/km  |
+	grey title="iwf-2d" mean=y color=j scalebar=y barlabel="weight" barunit=""
+	''')
+
+
+# Spectra
+for i in range(3):
+    case = ('bmig1_45','cgrad_out0','pcgrad_out0')[i]
+    Plot(case+'Spec',case,
+     '''
+     spectra all=y | scale axis=2 | put label2=RelativeScale unit2="" 
+     | graph title="Average frequency spectrum by Trace" plotcol=%d dash=0 plotfat=4
+     ''' % (6-i))
+# yellow = 6 
+# blue = 5
+# green = 4
+Result('spec','bmig1_45Spec cgrad_out0Spec pcgrad_out0Spec','Overlay')
+
+
+
+# Zoom-in
+Plot('z-cg','cgrad_out0','window min1=1.0 max1=2.0 min2=2.0 max2=4.0 | grey title="Zoom CG"')
+Plot('z-pcg','pcgrad_out0','window min1=1.0 max1=2.0 min2=2.0 max2=4.0 | grey title="Zoom PCG"')
+Result('z-ls', 'z-cg z-pcg', 'SideBySideIso')
+
+
+Plot('z-cg2','cgrad_out0','window min1=2.0 max1=3.0 min2=5.5 max2=7.5 | grey title="Zoom CG"')
+Plot('z-pcg2','pcgrad_out0','window min1=2.0 max1=3.0 min2=5.5 max2=7.5 | grey title="Zoom PCG"')
+Result('z-ls2', 'z-cg2 z-pcg2', 'SideBySideIso')
+
+Plot('z-cg3','cgrad_out0','window min1=0.5 max1=1.5 min2=5.0 max2=8.0 | grey title="Zoom CG"')
+Plot('z-pcg3','pcgrad_out0','window min1=0.5 max1=1.5 min2=5.0 max2=8.0 | grey title="Zoom PCG"')
+Result('z-ls3', 'z-cg3 z-pcg3', 'SideBySideIso')
+
+
+
+Plot('z-cg4','cgrad_out0_100','window min1=1.5 max1=2.5 min2=0.5 max2=2.5 | grey title="Zoom CG"')
+Plot('z-pcg4','pcgrad_out0_100','window min1=1.5 max1=2.5 min2=0.5 max2=2.5 | grey title="Zoom PCG"')
+Plot('z-rfl','refl','window min1=1.5 max1=2.5 min2=0.5 max2=2.5 | grey title="Zoom Refl"')
+
+Result('z-salt', 'z-rfl z-cg4 z-pcg4', 'SideBySideIso')
+
+# 
+Result('dres_lsrtm100','dres_cg100 dres_pcg100 dres_wwpcg100','''
+  cat axis=2 ${SOURCES[1:3]} | graph title="L2-norm Data Residual" 
+  label2="Data misfit" label1="Iterations"
+  unit2="" unit1="" plotcol=5,4,3 dash=1,0,0 plotfat=10
+  ''')
+
+End()
+
+

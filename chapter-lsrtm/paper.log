@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.4)  16 FEB 2021 20:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.4)  16 FEB 2021 20:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -256,25 +256,135 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<../chapter-lsrtm/pre/Fig/bshots45.pdf, id=1, 846.16125pt x 716.6775pt>
+File: ../chapter-lsrtm/pre/Fig/bshots45.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/bshots45.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/bshots45.pdf  used on input l
+ine 28.
+(pdftex.def)             Requested size: 433.62pt x 367.26132pt.
+<../chapter-lsrtm/pre/Fig/vel-mig.pdf, id=2, 872.29887pt x 686.565pt>
+File: ../chapter-lsrtm/pre/Fig/vel-mig.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/vel-mig.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/vel-mig.pdf  used on input li
+ne 29.
+(pdftex.def)             Requested size: 433.62pt x 341.29118pt.
+<../chapter-lsrtm/pre/Fig/bmig1_45.pdf, id=3, 825.3234pt x 686.565pt>
+File: ../chapter-lsrtm/pre/Fig/bmig1_45.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/bmig1_45.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/bmig1_45.pdf  used on input l
+ine 30.
+(pdftex.def)             Requested size: 433.62pt x 360.71393pt.
+<../chapter-lsrtm/pre/Fig/iw-2d.pdf, id=4, 872.29887pt x 679.33798pt>
+File: ../chapter-lsrtm/pre/Fig/iw-2d.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/iw-2d.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/iw-2d.pdf  used on input line
+ 31.
+(pdftex.def)             Requested size: 433.62pt x 337.69864pt.
+<../chapter-lsrtm/pre/Fig/iwf-2d.pdf, id=5, 872.29887pt x 679.33798pt>
+File: ../chapter-lsrtm/pre/Fig/iwf-2d.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/iwf-2d.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/iwf-2d.pdf  used on input lin
+e 32.
+(pdftex.def)             Requested size: 433.62pt x 337.69864pt.
+<../chapter-lsrtm/pre/Fig/decon-2d.pdf, id=6, 825.3234pt x 686.565pt>
+File: ../chapter-lsrtm/pre/Fig/decon-2d.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/decon-2d.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/decon-2d.pdf  used on input l
+ine 33.
+(pdftex.def)             Requested size: 433.62pt x 360.71393pt.
+<../chapter-lsrtm/pre/Fig/cgrad_out0.pdf, id=7, 825.3234pt x 679.33798pt>
+File: ../chapter-lsrtm/pre/Fig/cgrad_out0.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/cgrad_out0.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/cgrad_out0.pdf  used on input
+ line 34.
+(pdftex.def)             Requested size: 433.62pt x 356.91693pt.
+<../chapter-lsrtm/pre/Fig/pcgrad_out0.pdf, id=8, 825.3234pt x 679.33798pt>
+File: ../chapter-lsrtm/pre/Fig/pcgrad_out0.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/pcgrad_out0.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/pcgrad_out0.pdf  used on inpu
+t line 35.
+(pdftex.def)             Requested size: 433.62pt x 356.91693pt.
+<../chapter-lsrtm/pre/Fig/spec.pdf, id=9, 821.70992pt x 682.95152pt>
+File: ../chapter-lsrtm/pre/Fig/spec.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/spec.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/spec.pdf  used on input line 
+36.
+(pdftex.def)             Requested size: 433.62pt x 360.39943pt.
+<../chapter-lsrtm/pre/Fig/z-ls.pdf, id=10, 915.66089pt x 346.89601pt>
+File: ../chapter-lsrtm/pre/Fig/z-ls.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/z-ls.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/z-ls.pdf  used on input line 
+37.
+(pdftex.def)             Requested size: 433.62pt x 164.27446pt.
+<../chapter-lsrtm/pre/Fig/z-ls2.pdf, id=11, 913.49281pt x 346.89601pt>
+File: ../chapter-lsrtm/pre/Fig/z-ls2.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/z-ls2.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/z-ls2.pdf  used on input line
+ 38.
+(pdftex.def)             Requested size: 433.62pt x 164.66615pt.
+<../chapter-lsrtm/pre/Fig/z-ls3.pdf, id=12, 915.66089pt x 346.89601pt>
+File: ../chapter-lsrtm/pre/Fig/z-ls3.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/z-ls3.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/z-ls3.pdf  used on input line
+ 39.
+(pdftex.def)             Requested size: 433.62pt x 164.27446pt.
+<../chapter-lsrtm/pre/Fig/z-salt.pdf, id=13, 942.4008pt x 235.6002pt>
+File: ../chapter-lsrtm/pre/Fig/z-salt.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/z-salt.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/z-salt.pdf  used on input lin
+e 40.
+(pdftex.def)             Requested size: 433.62pt x 108.40616pt.
+<../chapter-lsrtm/pre/Fig/cgrad_out0_100.pdf, id=14, 825.3234pt x 679.33798pt>
+File: ../chapter-lsrtm/pre/Fig/cgrad_out0_100.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/cgrad_out0_100.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/cgrad_out0_100.pdf  used on i
+nput line 41.
+(pdftex.def)             Requested size: 433.62pt x 356.91693pt.
+<../chapter-lsrtm/pre/Fig/pcgrad_out0_100.pdf, id=15, 825.3234pt x 679.33798pt>
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./paper.aux) ) 
+File: ../chapter-lsrtm/pre/Fig/pcgrad_out0_100.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/pcgrad_out0_100.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/pcgrad_out0_100.pdf  used on 
+input line 42.
+(pdftex.def)             Requested size: 433.62pt x 356.91693pt.
+<../chapter-lsrtm/pre/Fig/dres_lsrtm100.pdf, id=16, 837.60928pt x 677.16992pt>
+File: ../chapter-lsrtm/pre/Fig/dres_lsrtm100.pdf Graphic file (type pdf)
+<use ../chapter-lsrtm/pre/Fig/dres_lsrtm100.pdf>
+Package pdftex.def Info: ../chapter-lsrtm/pre/Fig/dres_lsrtm100.pdf  used on in
+put line 43.
+(pdftex.def)             Requested size: 433.62pt x 350.55981pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../chapter-lsrtm/pre/Fig/b
+shots45.pdf>]
+[2 <../chapter-lsrtm/pre/Fig/vel-mig.pdf>] [3 <../chapter-lsrtm/pre/Fig/bmig1_4
+5.pdf>] [4 <../chapter-lsrtm/pre/Fig/iw-2d.pdf>] [5 <../chapter-lsrtm/pre/Fig/i
+wf-2d.pdf>] [6 <../chapter-lsrtm/pre/Fig/decon-2d.pdf>] [7 <../chapter-lsrtm/pr
+e/Fig/cgrad_out0.pdf>] [8 <../chapter-lsrtm/pre/Fig/pcgrad_out0.pdf>] [9 <../ch
+apter-lsrtm/pre/Fig/spec.pdf> <../chapter-lsrtm/pre/Fig/z-ls.pdf>] [10 <../chap
+ter-lsrtm/pre/Fig/z-ls2.pdf> <../chapter-lsrtm/pre/Fig/z-ls3.pdf> <../chapter-l
+srtm/pre/Fig/z-salt.pdf>] [11 <../chapter-lsrtm/pre/Fig/cgrad_out0_100.pdf>]
+[12 <../chapter-lsrtm/pre/Fig/pcgrad_out0_100.pdf>] [13 <../chapter-lsrtm/pre/F
+ig/dres_lsrtm100.pdf>] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 3815 strings out of 483140
- 56181 string characters out of 5965152
- 290857 words of memory out of 5000000
- 18811 multiletter control sequences out of 15000+600000
- 535287 words of font info for 36 fonts, out of 8000000 for 9000
+ 3995 strings out of 483140
+ 61773 string characters out of 5965152
+ 296139 words of memory out of 5000000
+ 18964 multiletter control sequences out of 15000+600000
+ 540562 words of font info for 56 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 60i,7n,54p,281b,173s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on paper.pdf (1 page, 37426 bytes).
+ 60i,7n,54p,281b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb>
+Output written on paper.pdf (13 pages, 2194841 bytes).
 PDF statistics:
- 20 PDF objects out of 1000 (max. 8388607)
- 13 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
