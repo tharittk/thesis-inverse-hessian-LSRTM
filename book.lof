@@ -4,20 +4,27 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Shot gathers}}{8}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Migration velocity for prestack migration}}{9}{figure.3.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces RTM Image}}{9}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces $\mathbf {W^{-1}}$}}{9}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces $\mathbf {W_f^{-1}}$}}{10}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Poststack Deconvolution Image}}{10}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces LSRTM Image without Preconditioner 20 iterations}}{10}{figure.3.7}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces LSRTM Image with Preconditioner 20 iterations $\mathbf {W^{-1}}$ $\mathbf {W_f^{-1}}$}}{11}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces LSRTM Image with Space-only Preconditioner 20 iterations}}{11}{figure.3.9}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces LSRTM Image with Frequency-only Preconditioner 20 iterations}}{11}{figure.3.10}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Freqeuncy spectrum: mig1(blue) cg(red) pcg(pink)}}{12}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Zoom-in Comparison1}}{12}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Zoom-in Comparison2}}{12}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Zoom-in Comparison3}}{12}{figure.3.14}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Zoom-in Comparison4, note the stair like reflectors}}{13}{figure.3.15}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces LSRTM Image without Preconditioner after 100 iterations}}{13}{figure.3.16}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces LSRTM Image with Preconditioner after 100 iterations}}{13}{figure.3.17}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces LSRTM Image with Space only Preconditioner after 100 iterations}}{14}{figure.3.18}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}}{14}{figure.3.19}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces $\mathbf {W^{-1}}$ 2, 5, 10 iteration of update}}{10}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{10}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{10}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{10}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces $\mathbf {W_f^{-1}}$ 2, 5, 10 iteration of update}}{11}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{11}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{11}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{11}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Poststack Deconvolution Image 2, 5, 10 iteration of update}}{12}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{12}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{12}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{12}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces LSRTM Image without Preconditioner 20 iterations}}{13}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces LSRTM Image with Preconditioner 20 iterations $\mathbf {W^{-1}}$ $\mathbf {W_f^{-1}}$}}{13}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Freqeuncy spectrum: mig1(blue) cg(red) pcg(pink)}}{13}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Zoom-in Comparison1}}{14}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Zoom-in Comparison2}}{14}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Zoom-in Comparison3}}{14}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Zoom-in Comparison4, note the stair like reflectors}}{14}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces LSRTM Image without Preconditioner after 100 iterations}}{15}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces LSRTM Image with Preconditioner after 100 iterations}}{15}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces LSRTM Image with Space only Preconditioner after 100 iterations}}{15}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}}{16}{figure.3.17}%
 \addvspace {10pt}

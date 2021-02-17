@@ -6,32 +6,41 @@
 
 \maketitle
 
-\section{Numerical Experiment: Post-stack Deconvolution}
-\inputdir{../chapter-lsrtm/post}
-
-use chain in post stack sense
-
-\section{Numerical Experiment: Preconditioned Least-square RTM}
+\section{Numerical Experiment}
 \inputdir{../chapter-lsrtm/pre}
 
-use chain to accelerate LSRTM
+\subsection{Chain as a Deconvolution Filter}
+We test the idea of of using the chain of operators with Marmousi data \cite[]{versteeg1994}. The shot gather volume is shown in Figure \ref{fig:bshots45} and consists of 45 shots. The migration velocity is shown in Figure \ref{fig:velmig} which is derived from smoothing the stratigraphic slowness. Figure \ref{fig:bmig1} shows reverse-time migarted image using a finite-difference wave propagator. 
 
 \plot{bshots45}{width=0.4\columnwidth}{Shot gathers}
 \plot{velmig}{width=0.4\columnwidth}{Migration velocity for prestack migration}
 \plot{bmig1}{width=0.4\columnwidth}{RTM Image}
 
-\plot{iw}{width=0.4\columnwidth}{$\mathbf{W^{-1}}$}
-\plot{iwf}{width=0.4\columnwidth}{$\mathbf{W_f^{-1}}$}
+
+After we obtaint the sencond migrated image, we estimate $\mathbf{W^{-1}}$ and $\mathbf{W_f^{-1}}$ using the chain of operator. 
+We run the chain solver for different numbers of iterations. The residual is about 1.9 $\%$, 0.23 $\%$, 0.21 $\%$ after 2, 5, 10 iterations respectively.These weights are shown in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}). Notice that the weights in space domain $\mathbf{W^{1}}$does not change much after more iterations, contrasting to weights in frequency domain $\mathbf{W_f^{1}}$
+
+\multiplot{3}{iw,iw5,iw10}{width=0.4\columnwidth}{$\mathbf{W^{-1}}$ 2, 5, 10 iteration of update}
+
+\multiplot{3}{iwf,iwf5,iwf10}{width=0.4\columnwidth}{$\mathbf{W_f^{-1}}$ 2, 5, 10 iteration of update}
 
 
-\plot{decon-2d}{width=0.4\columnwidth}{Poststack Deconvolution Image}
+Subsequently, we used chain weights to perform poststack deconvolution as prescribed in equation (\ref{lsmig}). The result (Figure \ref{fig:decon2,decon5,decon10})shows an immediate improvement in resolution improvement over the initial RTM image. The deconvolved image with 5 iterations has higher resolution compared to the one run with 2 iterations. However, the image with 5 iterations gives a smoother image. This may be from the the fact that we get smoother freqeuncy weight $\mathbf{Wf^{-1]}}$.
+
+\multiplot{3}{decon2,decon5,decon10}{width=0.4\columnwidth}{Poststack Deconvolution Image 2, 5, 10 iteration of update}
+
+%
+%
+%
+
+\subsection{Chain as a Preconditioner for Least-square RTM}
+
+and form a preconditioner according to equation (\ref{prec}). 
+
 \plot{cgrad20}{width=0.4\columnwidth}{LSRTM Image without Preconditioner 20 iterations}
 
 \plot{pgrad20}{width=0.4\columnwidth}{LSRTM Image with Preconditioner 20 iterations $\mathbf{W^{-1}}$ $\mathbf{W_f^{-1}}$}
 
-
-\plot{wwpgrad20}{width=0.4\columnwidth}{LSRTM Image with Space-only Preconditioner 20 iterations}
-\plot{ffpgrad20}{width=0.4\columnwidth}{LSRTM Image with Frequency-only Preconditioner 20 iterations}
 
 \plot{spec}{width=0.4\columnwidth}{Freqeuncy spectrum: mig1(blue) cg(red) pcg(pink)}
 \plot{zm1}{width=0.4\columnwidth}{Zoom-in Comparison1}

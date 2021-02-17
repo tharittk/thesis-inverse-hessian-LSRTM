@@ -5,7 +5,7 @@
 \contentsline {chapter}{Chapter 1.\hspace *{1em}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{Chapter 2.\hspace *{1em}Chain of operator: Theory}{2}{chapter.2}%
 \contentsline {chapter}{Chapter 3.\hspace *{1em}Chain of operators: Experiments}{8}{chapter.3}%
-\contentsline {chapter}{Chapter 4.\hspace *{1em}Conclusions}{15}{chapter.4}%
-\contentsline {chapter}{Appendix}{16}{section*.14}%
-\contentsline {chapter}{Bibliography}{17}{section*.15}%
-\contentsline {chapter}{Vita}{20}{appendix*.17}%
+\contentsline {chapter}{Chapter 4.\hspace *{1em}Conclusions}{17}{chapter.4}%
+\contentsline {chapter}{Appendix}{18}{section*.15}%
+\contentsline {chapter}{Bibliography}{19}{section*.16}%
+\contentsline {chapter}{Vita}{22}{appendix*.18}%
