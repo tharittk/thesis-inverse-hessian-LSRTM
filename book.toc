@@ -3,9 +3,9 @@
 \contentsline {chapter}{List of Tables}{vii}{chapter*.4}%
 \contentsline {chapter}{List of Figures}{viii}{chapter*.5}%
 \contentsline {chapter}{Chapter 1.\hspace *{1em}Introduction}{1}{chapter.1}%
-\contentsline {chapter}{Chapter 2.\hspace *{1em}Background}{2}{chapter.2}%
-\contentsline {chapter}{Chapter 3.\hspace *{1em}Title}{3}{chapter.3}%
-\contentsline {chapter}{Chapter 4.\hspace *{1em}Conclusions}{4}{chapter.4}%
-\contentsline {chapter}{Appendix}{5}{section*.11}%
-\contentsline {chapter}{Bibliography}{6}{section*.12}%
-\contentsline {chapter}{Vita}{7}{appendix*.14}%
+\contentsline {chapter}{Chapter 2.\hspace *{1em}Chain of operator: Theory}{2}{chapter.2}%
+\contentsline {chapter}{Chapter 3.\hspace *{1em}Chain of operators: Experiments}{8}{chapter.3}%
+\contentsline {chapter}{Chapter 4.\hspace *{1em}Conclusions}{9}{chapter.4}%
+\contentsline {chapter}{Appendix}{10}{section*.14}%
+\contentsline {chapter}{Bibliography}{11}{section*.15}%
+\contentsline {chapter}{Vita}{14}{appendix*.17}%

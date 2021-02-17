@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.4)  6 FEB 2021 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.4)  16 FEB 2021 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -184,20 +184,19 @@ Package caption Info: End \AtBeginDocument code.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 3098 strings out of 483140
- 47835 string characters out of 5965152
+ 3095 strings out of 483140
+ 47796 string characters out of 5965152
  278295 words of memory out of 5000000
- 18127 multiletter control sequences out of 15000+600000
- 533588 words of font info for 28 fonts, out of 8000000 for 9000
+ 18125 multiletter control sequences out of 15000+600000
+ 532983 words of font info for 26 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 60i,5n,54p,281b,171s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,5n,54p,281b,167s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on paper.pdf (1 page, 18966 bytes).
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on paper.pdf (1 page, 11080 bytes).
 PDF statistics:
- 16 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
+ 12 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

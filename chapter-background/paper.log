@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.4)  6 FEB 2021 11:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.8.4)  16 FEB 2021 20:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -136,7 +136,7 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count193
 \l__pdf_internal_box=\box47
 )
-(./paper.aux)
+No file paper.aux.
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -153,7 +153,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
-
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count194
@@ -180,23 +179,353 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 
+
+Package natbib Warning: Citation `nemeth' on page 1 undefined on input line 18.
+
+
+
+Package natbib Warning: Citation `ronen' on page 1 undefined on input line 18.
+
+
+Package natbib Warning: Citation `dai' on page 1 undefined on input line 18.
+
+
+Package natbib Warning: Citation `wang' on page 1 undefined on input line 18.
+
+
+Package natbib Warning: Citation `wong' on page 1 undefined on input line 18.
+
+
+Package natbib Warning: Citation `tarantola' on page 1 undefined on input line 
+20.
+
+
+Package natbib Warning: Citation `sun' on page 1 undefined on input line 20.
+
+
+Package natbib Warning: Citation `xue' on page 1 undefined on input line 20.
+
+
+Package natbib Warning: Citation `rickett' on page 1 undefined on input line 22
+.
+
+
+Package natbib Warning: Citation `guitton' on page 1 undefined on input line 22
+.
+
+
+Package natbib Warning: Citation `greer' on page 1 undefined on input line 22.
+
+
+Package natbib Warning: Citation `hu2001' on page 1 undefined on input line 22.
+
+
+
+Package natbib Warning: Citation `yu2006' on page 1 undefined on input line 22.
+
+
+
+Package natbib Warning: Citation `aoki' on page 1 undefined on input line 22.
+
+
+Package natbib Warning: Citation `kaur' on page 1 undefined on input line 22.
+
+
+Package natbib Warning: Citation `miller1987' on page 1 undefined on input line
+ 24.
+
+
+Package natbib Warning: Citation `bleistein1987' on page 1 undefined on input l
+ine 24.
+
+
+Package natbib Warning: Citation `hou15' on page 1 undefined on input line 24.
+
+
+Package natbib Warning: Citation `hou16' on page 1 undefined on input line 24.
+
+
+Package natbib Warning: Citation `versteeg1994' on page 1 undefined on input li
+ne 28.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 35.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 35.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 35.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./paper.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Reference `eq:m2' on page 2 undefined on input line 45.
+
+
+LaTeX Warning: Reference `eq:m2' on page 2 undefined on input line 60.
+
+
+LaTeX Warning: Reference `eq:m3' on page 2 undefined on input line 69.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 80.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 80.
+
+LaTeX Warning: Reference `eq:wfw' on page 2 undefined on input line 81.
+
+
+! LaTeX Error: Environment split undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \begin{split}
+                  
+? 
+
+! LaTeX Error: \begin{equation} on input line 82 ended by \end{split}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.87 \end{split}
+                
+? 
+
+! LaTeX Error: Environment bmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 \begin{bmatrix}
+                    
+? 
+! Misplaced alignment tab character &.
+l.94 \mathbf{W} &
+                  \mathbf{-I} & \mathbf{0} & \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.94 \mathbf{W} & \mathbf{-I} &
+                                \mathbf{0} & \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.94 \mathbf{W} & \mathbf{-I} & \mathbf{0} &
+                                             \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.95 \mathbf{0} &
+                  \mathbf{\inv{F}W_{f}} \mathbf{F} & \mathbf{-I} & \mathbf{0}\\
+
+? 
+! Misplaced alignment tab character &.
+l.95 ...bf{0} & \mathbf{\inv{F}W_{f}} \mathbf{F} &
+                                                   \mathbf{-I} & \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.95 ...f{\inv{F}W_{f}} \mathbf{F} & \mathbf{-I} &
+                                                   \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.96 \mathbf{0} &
+                  \mathbf{0} & \mathbf{W}  & \mathbf{-I}
+? 
+! Misplaced alignment tab character &.
+l.96 \mathbf{0} & \mathbf{0} &
+                               \mathbf{W}  & \mathbf{-I}
+? 
+! Misplaced alignment tab character &.
+l.96 \mathbf{0} & \mathbf{0} & \mathbf{W}  &
+                                             \mathbf{-I}
+? 
+
+! LaTeX Error: \begin{equation} on input line 91 ended by \end{bmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.97 \end{bmatrix}
+                  
+? 
+
+! LaTeX Error: Environment bmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98 \begin{bmatrix}
+                    
+? 
+
+! LaTeX Error: \begin{equation} on input line 91 ended by \end{bmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 \end{bmatrix}
+                   
+? 
+[2]
+
+LaTeX Warning: Reference `res_chain' on page 3 undefined on input line 108.
+
+
+! LaTeX Error: Environment bmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 \begin{bmatrix}
+                     
+? 
+! Misplaced alignment tab character &.
+l.111 \mathbf{-I} &
+                    \mathbf{0} & \mathbf{diag[m_1]} & \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.111 \mathbf{-I} & \mathbf{0} &
+                                 \mathbf{diag[m_1]} & \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.111 ...f{-I} & \mathbf{0} & \mathbf{diag[m_1]} &
+                                                   \mathbf{0}\\
+? 
+! Misplaced alignment tab character &.
+l.112 \mathbf{\inv{F}W_{f}F} &
+                               \mathbf{-I} & \mathbf{0} & \mathbf{\inv{F}dia...
+
+? 
+! Misplaced alignment tab character &.
+l.112 \mathbf{\inv{F}W_{f}F} & \mathbf{-I} &
+                                             \mathbf{0} & \mathbf{\inv{F}dia...
+
+? 
+! Misplaced alignment tab character &.
+l.112 ...nv{F}W_{f}F} & \mathbf{-I} & \mathbf{0} &
+                                                   \mathbf{\inv{F}diag[Fx_1]}\\
+
+? 
+! Misplaced alignment tab character &.
+l.113 \mathbf{0} &
+                   \mathbf{W} & \mathbf{diag[x_2]}  & \mathbf{0}
+? 
+! Misplaced alignment tab character &.
+l.113 \mathbf{0} & \mathbf{W} &
+                                \mathbf{diag[x_2]}  & \mathbf{0}
+? 
+! Misplaced alignment tab character &.
+l.113 ...f{0} & \mathbf{W} & \mathbf{diag[x_2]}  &
+                                                   \mathbf{0}
+? 
+
+! LaTeX Error: \begin{equation} on input line 109 ended by \end{bmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 \end{bmatrix}
+                   
+? 
+
+! LaTeX Error: Environment bmatrix undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 \begin{bmatrix}
+                     
+? 
+
+! LaTeX Error: \begin{equation} on input line 109 ended by \end{bmatrix}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.120 \end{bmatrix}
+                   
+? 
+
+LaTeX Warning: Reference `linearized_chain' on page 3 undefined on input line 1
+24.
+
+
+Package natbib Warning: Citation `shaping' on page 3 undefined on input line 12
+4.
+
+
+LaTeX Warning: Reference `res_chain' on page 3 undefined on input line 124.
+
+
+Package natbib Warning: Citation `local' on page 3 undefined on input line 126.
+
+
+
+! LaTeX Error: Environment split undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 \begin{split}
+                   
+? 
+
+! LaTeX Error: \begin{equation} on input line 147 ended by \end{split}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.151 \end{split}
+                 
+? 
+
+LaTeX Warning: Reference `sol_y' on page 3 undefined on input line 158.
+
+
+Package natbib Warning: There were undefined citations.
+
+[3] [4] (./paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3095 strings out of 483140
- 47801 string characters out of 5965152
- 278295 words of memory out of 5000000
- 18125 multiletter control sequences out of 15000+600000
- 532983 words of font info for 26 fonts, out of 8000000 for 9000
+ 3142 strings out of 483140
+ 48299 string characters out of 5965152
+ 283288 words of memory out of 5000000
+ 18162 multiletter control sequences out of 15000+600000
+ 538187 words of font info for 43 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 60i,5n,54p,281b,167s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on paper.pdf (1 page, 10054 bytes).
+ 60i,7n,54p,894b,150s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on paper.pdf (4 pages, 127272 bytes).
 PDF statistics:
- 12 PDF objects out of 1000 (max. 8388607)
- 7 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

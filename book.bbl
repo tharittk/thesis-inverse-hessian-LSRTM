@@ -1,0 +1,103 @@
+\newcommand{\SortNoop}[1]{}
+\begin{thebibliography}{}
+\itemsep0pt
+
+\bibitem[Aoki and Schuster, 2009]{aoki}
+Aoki, N., and G.~T. Schuster,  2009, Fast least-squares migration with a
+  deblurring filter: Geophysics, {\bfseries 74}, WCA83--WCA93.
+
+\bibitem[Bleistein, 1987]{bleistein1987}
+Bleistein, N.,  1987, On the imaging of reflectors in the earth: Geophysics,
+  {\bfseries 52}, 931--942.
+
+\bibitem[Dai et~al., 2012]{dai}
+Dai, W., P. Fowler, and G.~T. Schuster,  2012, Multi-source least-squares
+  reverse time migration: Geophysical Prospecting, {\bfseries 60}, 681--695.
+
+\bibitem[Fomel, 2007a]{local}
+Fomel, S.,  2007a, Local seismic attributes: Geophysics, {\bfseries 72},
+  A29--A33.
+
+\bibitem[Fomel, 2007b]{shaping}
+--------, 2007b, Shaping regularization in geophysical-estimation problems:
+  Geophysics, {\bfseries 72}, R29--R36.
+
+\bibitem[Greer et~al., 2018]{greer}
+Greer, S., Z. Xue, and S. Fomel,  2018, Improving migration resolution by
+  approximating the least-squares hessian using nonstationary amplitude and
+  frequency matching, {\itshape in} SEG Technical Program Expanded Abstracts
+  2018: Society of Exploration Geophysicists,  4261--4265.
+
+\bibitem[Guitton, 2004]{guitton}
+Guitton, A.,  2004, Amplitude and kinematic corrections of migrated images for
+  nonunitary imaging operators: Geophysics, {\bfseries 69}, 1017--1024.
+
+\bibitem[Hou and Symes, 2015]{hou15}
+Hou, J., and W.~W. Symes,  2015, An approximate inverse to the extended born
+  modeling operatoran approximate inverse operator: Geophysics, {\bfseries 80},
+  R331--R349.
+
+\bibitem[Hou and Symes, 2016]{hou16}
+--------, 2016, Accelerating extended least-squares migration with weighted
+  conjugate gradient iteration: Geophysics, {\bfseries 81}, S165--S179.
+
+\bibitem[Hu et~al., 2001]{hu2001}
+Hu, J., G.~T. Schuster, and P.~A. Valasek,  2001, Poststack migration
+  deconvolution: Geophysics, {\bfseries 66}, 939--952.
+
+\bibitem[Kaur et~al., 2020]{kaur}
+Kaur, H., N. Pham, and S. Fomel,  2020, Improving resolution of migrated images
+  by approximating the inverse hessian using deep learning: Geophysics,
+  {\bfseries 85}, 1--62.
+
+\bibitem[Miller et~al., 1987]{miller1987}
+Miller, D., M. Oristaglio, and G. Beylkin,  1987, A new slant on seismic
+  imaging: Migration and integral geometry: Geophysics, {\bfseries 52},
+  943--964.
+
+\bibitem[Nemeth et~al., 1999]{nemeth}
+Nemeth, T., C. Wu, and G.~T. Schuster,  1999, Least-squares migration of
+  incomplete reflection data: Geophysics, {\bfseries 64}, 208--221.
+
+\bibitem[Rickett, 2003]{rickett}
+Rickett, J.~E.,  2003, Illumination-based normalization for wave-equation depth
+  migration: Geophysics, {\bfseries 68}, 1371--1379.
+
+\bibitem[Ronen and Liner, 2000]{ronen}
+Ronen, S., and C.~L. Liner,  2000, Least-squares dmo and migration: Geophysics,
+  {\bfseries 65}, 1364--1371.
+
+\bibitem[Sun et~al., 2016]{sun}
+Sun, J., S. Fomel, T. Zhu, and J. Hu,  2016, Q-compensated least-squares
+  reverse time migration using low-rank one-step wave extrapolation:
+  Geophysics, {\bfseries 81}, S271--S279.
+
+\bibitem[Tarantola, 1984]{tarantola}
+Tarantola, A.,  1984, Inversion of seismic reflection data in the acoustic
+  approximation: Geophysics, {\bfseries 49}, 1259--1266.
+
+\bibitem[Versteeg, 1994]{versteeg1994}
+Versteeg, R.,  1994, The marmousi experience: Velocity model determination on a
+  synthetic complex data set: The Leading Edge, {\bfseries 13}, 927--936.
+
+\bibitem[Wang et~al., 2016]{wang}
+Wang, P., A. Gomes, Z. Zhang, and M. Wang,  2016, Least-squares rtm: Reality
+  and possibilities for subsalt imaging, {\itshape in} SEG Technical Program
+  Expanded Abstracts 2016: Society of Exploration Geophysicists,  4204--4209.
+
+\bibitem[Wong et~al., 2011]{wong}
+Wong, M., S. Ronen, and B. Biondi,  2011, Least-squares reverse time
+  migration/inversion for ocean bottom data: A case study, {\itshape in} SEG
+  Technical Program Expanded Abstracts 2011: Society of Exploration
+  Geophysicists,  2369--2373.
+
+\bibitem[Xue et~al., 2016]{xue}
+Xue, Z., Y. Chen, S. Fomel, and J. Sun,  2016, Seismic imaging of incomplete
+  data and simultaneous-source data using least-squares reverse time migration
+  with shaping regularization: Geophysics, {\bfseries 81}, S11--S20.
+
+\bibitem[Yu et~al., 2006]{yu2006}
+Yu, J., J. Hu, G.~T. Schuster, and R. Estill,  2006, Prestack migration
+  deconvolution: Geophysics, {\bfseries 71}, S53--S62.
+
+\end{thebibliography}
