@@ -6,7 +6,9 @@
 
 %\section{Summary}
 
-In this thesis, I discussed 
+
+In this work, we propose a novel approach to approximating the inverse Hessian operator in least-squares migration. The method is data-driven and involves solving for weights in the original and Fourier domains that match two subsequent migrated images using a chain of operators. Our synthetic example shows that the preconditioner formed by this approach can be used to accelerate iterative least-square migration. This results in the final image with improved resolution, balanced amplitudes, and a better data fit.
+
 
 
 \section{Future work}
@@ -14,4 +16,48 @@ In the future,
 
 \appendix
 \section{Code}
-Code
+Below is the code for the code of the programs that are newly devoloped for this project. In particular, Mchain2dfft.c and chain2dfft.c are the program for solving for weights in space and frequency domain. Mtf2dprec.c and tf2dprec.c are the subroutine that is used to implement a preconditioning in a Conjugate-gradient solver. The library used in those can be found at Madagascar open-source software environment for reproducible computational experiments \cite[]{madagascar}. The package is available at \url{http://www.ahay.org/}.
+
+
+\definecolor{mygreen}{rgb}{0,0.5,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.5,0,0.8}
+\definecolor{c0}{rgb}{0.71,0.54,0}
+\definecolor{c1}{rgb}{0.75,0.29,0.09}
+\definecolor{c2}{rgb}{0.80,0.20,0.18}
+\definecolor{c3}{rgb}{0.15,0.54,0.82}
+\definecolor{c4}{rgb}{0.52,0.60,0}
+\definecolor{c5}{rgb}{0,0.5,0}
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  commentstyle=\color{c5},    % comment style
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  language=Python,                 % the language of the code
+  deletecomment={[s]{'''}{'''}},
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{c2},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  keywords=[1]{from,for,if,in,import,def},
+  keywords=[2]{Flow,Fetch},
+  keywords=[3]{Result,Plot},
+  keywordstyle={\color{c0}},
+  keywordstyle=[2]{\color{blue}},
+  keywordstyle=[3]{\color{c3}},
+}
+
+\lstinputlisting[language=C,label={lst:chain2},caption={chapter-lsrtm/code/Mchain2dfft.c}]{../chapter-lsrtm/code/Mchain2dfft.c}
+\lstinputlisting[language=C,label={lst:chain2},caption={chapter-lsrtm/code/chain2dfft.c}]{../chapter-lsrtm/code/chain2dfft.c}
+\lstinputlisting[language=C,label={lst:chain2},caption={chapter-lsrtm/code/Mtf2dprec.c}]{../chapter-lsrtm/code/Mtf2dprec.c}
+\lstinputlisting[language=C,label={lst:chain2},caption={chapter-lsrtm/code/tf2dprec.c}]{../chapter-lsrtm/code/tf2dprec.c}
