@@ -16,19 +16,30 @@ use chain in post stack sense
 
 use chain to accelerate LSRTM
 
-\plot{bshots45}{width=0.35\columnwidth}{Shot gathers}
-\plot{vel-mig}{width=0.35\columnwidth}{Migration velocity for prestack migration}
-\plot{bmig1_45}{width=0.35\columnwidth}{RTM Image}
-\plot{iw-2d}{width=0.35\columnwidth}{$\mathbf{W^{-1}}$}
-\plot{iwf-2d}{width=0.35\columnwidth}{$\mathbf{W_f^{-1}}$}
-\plot{decon-2d}{width=0.35\columnwidth}{Poststack Deconvolution Image}
-\plot{cgrad_out0}{width=0.35\columnwidth}{LSRTM Image without Preconditioner 20 iterations}
-\plot{pcgrad_out0}{width=0.35\columnwidth}{LSRTM Image with Preconditioner 20 iterations $\mathbf{W^{-1}}$ $\mathbf{W_f^{-1}}$}
-\plot{spec}{width=0.35\columnwidth}{Freqeuncy spectrum: mig1(blue) cg(red) pcg(pink)}
-\plot{z-ls}{width=0.35\columnwidth}{Zoom-in Comparison1}
-\plot{z-ls2}{width=0.35\columnwidth}{Zoom-in Comparison2}
-\plot{z-ls3}{width=0.35\columnwidth}{Zoom-in Comparison3}
-\plot{z-salt}{width=0.35\columnwidth}{Zoom-in Comparison4 - note the stair-like reflectors}
-\plot{cgrad_out0_100}{width=0.35\columnwidth}{LSRTM Image without Preconditioner after 100 iterations}
-\plot{pcgrad_out0_100}{width=0.35\columnwidth}{LSRTM Image with Preconditioner after 100 iterations}
-\plot{dres_lsrtm100}{width=0.35\columnwidth}{Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}
+\plot{bshots45}{width=0.4\columnwidth}{Shot gathers}
+\plot{velmig}{width=0.4\columnwidth}{Migration velocity for prestack migration}
+\plot{bmig1}{width=0.4\columnwidth}{RTM Image}
+
+\plot{iw}{width=0.4\columnwidth}{$\mathbf{W^{-1}}$}
+\plot{iwf}{width=0.4\columnwidth}{$\mathbf{W_f^{-1}}$}
+
+
+\plot{decon-2d}{width=0.4\columnwidth}{Poststack Deconvolution Image}
+\plot{cgrad20}{width=0.4\columnwidth}{LSRTM Image without Preconditioner 20 iterations}
+
+\plot{pgrad20}{width=0.4\columnwidth}{LSRTM Image with Preconditioner 20 iterations $\mathbf{W^{-1}}$ $\mathbf{W_f^{-1}}$}
+
+
+\plot{wwpgrad20}{width=0.4\columnwidth}{LSRTM Image with Space-only Preconditioner 20 iterations}
+\plot{ffpgrad20}{width=0.4\columnwidth}{LSRTM Image with Frequency-only Preconditioner 20 iterations}
+
+\plot{spec}{width=0.4\columnwidth}{Freqeuncy spectrum: mig1(blue) cg(red) pcg(pink)}
+\plot{zm1}{width=0.4\columnwidth}{Zoom-in Comparison1}
+\plot{zm2}{width=0.4\columnwidth}{Zoom-in Comparison2}
+\plot{zm3}{width=0.4\columnwidth}{Zoom-in Comparison3}
+\plot{zm4}{width=0.4\columnwidth}{Zoom-in Comparison4, note the stair like reflectors}
+\plot{cgrad100}{width=0.4\columnwidth}{LSRTM Image without Preconditioner after 100 iterations}
+\plot{pgrad100}{width=0.4\columnwidth}{LSRTM Image with Preconditioner after 100 iterations}
+\plot{wwpgrad100}{width=0.4\columnwidth}{LSRTM Image with Space only Preconditioner after 100 iterations}
+
+\plot{dres100}{width=0.4\columnwidth}{Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}
