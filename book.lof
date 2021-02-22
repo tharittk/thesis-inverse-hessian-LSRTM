@@ -1,42 +1,46 @@
 \addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Synthetic Shot record}}{2}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces RTM Image(left) without Inverse Hessian (right) with Inverse Hessian }}{2}{figure.1.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{2}{figure.1.2}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{2}{figure.1.2}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic drawing of chain of operators}}{4}{figure.2.1}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic drawing of chain of operators}}{6}{figure.2.1}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Shot gathers}}{10}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Migration velocity for prestack migration}}{10}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces RTM Image}}{11}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces $\mathbf {W^{-1}}$ 2, 5, 10 iteration of update}}{12}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{12}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{12}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{12}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces $\mathbf {W_f^{-1}}$ 2, 5, 10 iteration of update}}{13}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{13}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{13}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{13}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Poststack Deconvolution Image 2, 5, 10 iteration of update}}{14}{figure.3.6}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{14}{figure.3.6}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{14}{figure.3.6}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Zero-offset shot Viking Graben}}{15}{figure.3.7}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Dix Velocity for Migration}}{16}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces (left) standard Zero-offset migration (mid) Deconvolved image by chain (right) Iterative LSM}}{16}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{16}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{16}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{16}{figure.3.9}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Zoom-in comparison Viking Graben}}{17}{figure.3.10}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Frequency spectrum of - blue: standard ZORTM, red: Deconvolved by chain, pink: Iterative LSM}}{17}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Changes in Conjugate-gradient algorithms to incorporate preconditioner}}{18}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces LSRTM Image without (left) and with (left) Preconditioner after 20 iterations}}{19}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{19}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{19}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Frequency spectrum of migrated image - blue: standard RTM, red: LSRTM, pink: Precondition LSRTM}}{20}{figure.3.14}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Zoom-in comparison 1}}{20}{figure.3.15}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Zoom-in comparison 2}}{20}{figure.3.16}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Zoom-in comparison 3}}{21}{figure.3.17}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Zoom-in comparison 4}}{21}{figure.3.18}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}}{21}{figure.3.19}%
-\contentsline {figure}{\numberline {3.20}{\ignorespaces (left)LSRTM Image without Precondtitioner (mid) with Preconditioner ($\mathbf {W}$,$\mathbf {Wf}$) (right) Preconditioner ($\mathbf {W}$ only )after 100 iterations }}{22}{figure.3.20}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}{figure.3.20}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}{figure.3.20}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{22}{figure.3.20}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Shot gathers}}{12}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Migration velocity for prestack migration}}{12}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces RTM Image}}{13}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces $\mathbf {W^{-1}}$ 2, 5, 10 iteration of update}}{14}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{14}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{14}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces $\mathbf {W_f^{-1}}$ 2, 5, 10 iteration of update}}{15}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{15}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{15}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{15}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Poststack Deconvolution Image 2, 5, 10 iteration of update}}{16}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{16}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{16}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{16}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Zero-offset shot Viking Graben}}{17}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Dix Velocity for Migration}}{18}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces (left) standard Zero-offset migration (mid) Deconvolved image by chain (right) Iterative LSM}}{18}{figure.3.9}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{18}{figure.3.9}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{18}{figure.3.9}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{18}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Zoom-in comparison Viking Graben}}{19}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Frequency spectrum of - blue: standard ZORTM, red: Deconvolved by chain, pink: Iterative LSM}}{19}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Changes in Conjugate-gradient algorithms to incorporate preconditioner}}{20}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces LSRTM Image without (left) and with (left) Preconditioner after 20 iterations}}{21}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{21}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{21}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Frequency spectrum of migrated image - blue: standard RTM, red: LSRTM, pink: Precondition LSRTM}}{22}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Zoom-in comparison 1}}{22}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Zoom-in comparison 2}}{22}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Zoom-in comparison 3}}{23}{figure.3.17}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Zoom-in comparison 4}}{23}{figure.3.18}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}}{23}{figure.3.19}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces (left)LSRTM Image without Precondtitioner (mid) with Preconditioner ($\mathbf {W}$,$\mathbf {Wf}$) (right) Preconditioner ($\mathbf {W}$ only )after 100 iterations }}{24}{figure.3.20}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{24}{figure.3.20}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{24}{figure.3.20}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{24}{figure.3.20}%
 \addvspace {10pt}

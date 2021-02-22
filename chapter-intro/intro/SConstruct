@@ -1,0 +1,9 @@
+from rsf.proj import *
+
+
+Result('shots','window f3=1 | grey title="shots record"') 
+
+Result('mig1','img1','grey title="Standard RTM Image without Hessian"')
+
+Result('lsrtm','pcongrad_out','grey title="After compensated Image"')
+End()
