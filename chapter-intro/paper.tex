@@ -2,9 +2,46 @@
 \author{Tharit Tangkijwanichakul}
 \label{ch:chapter-intro}
 
-Intrp to problem of seismic imaging
-
 \maketitle
 
+Seismic imaging as a tool
+
+\section{Review of Seismic Imaging}
+
+In this part ...
+
+\subsection{Seismic Migration as a adjoint operator}
+
+Kinematics and geometrics
+
+
+\section{Development in Inverse Hessian Estimation}
+
+Least-squares migration (LSM) is a well-established technique for improving the quality of seismic imaging through inversion \cite[]{nemeth,ronen}. By formulating seismic imaging as a linear estimation problem, least-squares migration utilizes the power of iterative inversion for recovering the reflectivity of subsurface structures. In recent years, least-squares imaging, in particular LSRTM (least-square reverse-time migration) has found many successful applications \cite[]{dai,wang,wong}.
+
+The least-squares formulation involves the inverse Hessian operator. The exact computation of such inverse is prohibitively expansive. In the conventional approach, the inverse Hessian is approximated by iterative methods, such as conjugate gradients \cite[]{tarantola,sun,xue}. This raises the cost of LSRTM to the cost of migration and modeling multiplied by the number of iterations. Only a small number of iterations can be affordable in practice. 
+
+To reduce this cost or, alternatively, to reduce the number of iterations by accelerating the iterative convergence, a number of methods have been proposed in the literature for approximating the inverse Hessian using relatively inexpensive computations. \cite{rickett} estimated a simple scaling operator to approximate the inverse Hessian with a diagonal matrix. \cite{guitton} and \cite{greer} extended this approach to matching filters, approximating the inverse Hessian with a nonstationary convolution operator. This approach is also known as \emph{migration deconvolution} \cite[]{hu2001,yu2006}. \cite{aoki} approximated inverse Hessian as a deblurring filter for regularization and precondition scheme. \cite{kaur} adopt the deep learning technique and use generative adversarial networks in a conditional setting (CycleGANs) to approximate inverse Hessian.
+
+
+This work is motivated mainly by an asymptotic theory \cite[]{miller1987,bleistein1987}. The theory shows that the inverse Hessian can be represented as a combination of weights in the time domain and the frequency domain. The result extends to the case of LSRTM \cite[]{hou15,hou16}. 
+
+\section{Technical Contributions}
+
+We propose to approximate the inverse Hessian by reformulate by simultaneously estimating a chain of weights in the space and frequency domains from initial images. We design this chain to be symmetric to preserve the symmetric property of the Hessian.
+Once the weight matrices are estimated, they can be efficiently approximate the inverse Hessian. Alternatively, the approximate inverse Hessian can be incorporated in the form of a preconditioner to accelerate the convergence of iterative LSRTM.
+
+
+\section{Thesis outline}
+
+This undergraduate thesis organized according to the following outline:
 
  
+\begin{itemize}
+
+\item In Chapter 2, we first present the theory of chain of oparators, problem formulation, and an estimation algorithm. In particular, we present the estimation of inverse Hessian applied to the Least-square Migration problem. 
+
+\item In Chapter 3, we test the accuracy of the proposed approach using zero-offset synthetic data. We start with the synthetic data from the Marmousi model \cite[]{versteeg1994}. Then, we also test with the real data from Viking Graben. 
+
+\item Subsequently in Chapter 3, we use prestack Marmousi data  to evaluate the effectiveness of the proposed approximation of Inverse Hessian  by using it as a preconditioner for LSRTM.
+\end{itemize}

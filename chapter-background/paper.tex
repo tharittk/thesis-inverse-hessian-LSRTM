@@ -6,23 +6,17 @@
 
 \newcommand\inv[1]{#1\raisebox{1.15ex}{$\scriptscriptstyle-\!1$}} %matrix inverse
 
-\section{Development in Inverse Hessian Estimation}
-
-Least-squares migration (LSM) is a well-established technique for improving the quality of seismic imaging through inversion \cite[]{nemeth,ronen}. By formulating seismic imaging as a linear estimation problem, least-squares migration utilizes the power of iterative inversion for recovering the reflectivity of subsurface structures. In recent years, least-squares imaging, in particular LSRTM (least-square reverse-time migration) has found many successful applications \cite[]{dai,wang,wong}.
-
-The least-squares formulation involves the inverse Hessian operator. The exact computation of such inverse is prohibitively expansive. In the conventional approach, the inverse Hessian is approximated by iterative methods, such as conjugate gradients \cite[]{tarantola,sun,xue}. This raises the cost of LSRTM to the cost of migration and modeling multiplied by the number of iterations. Only a small number of iterations can be affordable in practice. 
-
-To reduce this cost or, alternatively, to reduce the number of iterations by accelerating the iterative convergence, a number of methods have been proposed in the literature for approximating the inverse Hessian using relatively inexpensive computations. \cite{rickett} estimated a simple scaling operator to approximate the inverse Hessian with a diagonal matrix. \cite{guitton} and \cite{greer} extended this approach to matching filters, approximating the inverse Hessian with a nonstationary convolution operator. This approach is also known as \emph{migration deconvolution} \cite[]{hu2001,yu2006}. \cite{aoki} approximated inverse Hessian as a deblurring filter for regularization and precondition scheme. \cite{kaur} adopt the deep learning technique and use generative adversarial networks in a conditional setting (CycleGANs) to approximate inverse Hessian.
-
-An asymptotic theory \cite[]{miller1987,bleistein1987} shows that the inverse Hessian can be represented as a combination of weights in the time domain and the frequency domain. The result extends to the case of LSRTM \cite[]{hou15,hou16}. Motivated by this theory,
-we propose to approximate the inverse Hessian by reformulate by simultaneously estimating a chain of weights in the space and frequency domains from initial images. We design this chain to be symmetric to preserve the symmetric property of the Hessian.
-Once the weight matrices are estimated, they can be efficiently approximate the inverse Hessian. Alternatively, the approximate inverse Hessian can be incorporated in the form of a preconditioner to accelerate the convergence of iterative LSRTM.
-
-The paper is organized as follows: We first present the theory, problem formulation, and an estimation algorithm. Next, we test the accuracy of the proposed approach using zero-offset synthetic data from the Marmousi model \cite[]{versteeg1994}. Subsequently, we use prestack Marmousi data  to evaluate the effectiveness of the proposed approximation as a migration-deconvolution filter and as a preconditioner for LSRTM.
 
 
 \section{Theory}
 
+\inputdir{../chapter-background/bg}
+
+\subsection{Motivation of chain of operators}
+
+\plot{chain}{width=0.8\columnwidth}{Schematic drawing of chain of operators}
+
+The motivation behind the idea of the chain of operators is that one can approximate the complex operator through the chain of parameterized elementary operators. As illustrated in Figure \ref{fig:chain}, the input source is related to target through the chain of parameterized elemtary operator (green). Between each of these elementary operators are predetermined function (grey) specifically for domain of application. In this work as motivated by asymtotic theory mentioned earlier, this predermined function is a Fouurier (and Inverse Fourier) Transform.
 
 \subsection*{Problem formulation}
 Given surface seismic data $\mathbf{d}$, the first migrated image $\mathbf{m}_1$ is obtained by applying seismic migration as the adjoint of forward linear modeling operator $\mathbf{L}$:
@@ -48,7 +42,7 @@ and its inverse, then applying this inverse to the initial image $\mathbf{m}_1$ 
 \end{equation}
 
 
-\subsection*{Chain operator}
+\subsection*{Chain operator in Least-squares Migration}
 
 We propose to approximate the connection between $\mathbf{m}_1$ and $\mathbf{m}_2$ in equation~(\ref{eq:m2}) using a chain of weights alternating between the original domain and the Fourier domain, as follows:
 \begin{equation}

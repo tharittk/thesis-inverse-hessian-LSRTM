@@ -20,8 +20,9 @@ We test the idea of of using the chain of operators with Marmousi data \cite[]{v
 
 %
 
-After we obtaint the sencond migrated image, we estimate $\mathbf{W^{-1}}$ and $\mathbf{W_f^{-1}}$ using the chain of operator. 
-We run the chain solver for different numbers of iterations. The residual is about 1.9 $\%$, 0.23 $\%$, 0.21 $\%$ after 2, 5, 10 iterations respectively.These weights are shown in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}). Notice that the weights in space domain $\mathbf{W^{1}}$does not change much after more iterations, contrasting to weights in frequency domain $\mathbf{W_f^{1}}$
+After we obtain the sencond migrated image $\mathbf{m_2}$ by remodeling and remigartion exercise ($\mathbf{L^{T}L}$) to $\mathbf{m_1}$, we form the initial weights $\mathbf{W_0}$ by taking the square-root of smooth division $\mathbf{\frac{m_2}{m_1}}$ as mentioned earlier.
+
+We run the chain solver to estimate $\mathbf{W}$ and $\mathbf{W_f}$ for different numbers of iterations. The residual is about 1.9 $\%$, 0.23 $\%$, 0.21 $\%$ after 2, 5, 10 iterations respectively.These weights are shown in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}). Notice that the weights in space domain $\mathbf{W^{1}}$does not change much after more iterations, contrasting to weights in frequency domain $\mathbf{W_f^{1}}$
 
 \multiplot{3}{iw,iw5,iw10}{width=0.48\columnwidth}{$\mathbf{W^{-1}}$ 2, 5, 10 iteration of update}
 
@@ -67,7 +68,9 @@ In Fig \ref{fig:vkspec}, deconvolution by chain can recover high frequency but n
 \subsection{Chain as a Preconditioner for Least-square RTM}
 \inputdir{../chapter-lsrtm/pre}
 
-We use the weights in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}) to form a preconditioner according to equation (\ref{prec}). We chose the weights after 2 update iterations.
+We use the weights in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}) to form a preconditioner according to equation (\ref{prec}). We chose the weights after 2 update iterations. In Figure \ref{fig:conj}, we show the change made to the generic conjugate-gradient algorithms to incorporate the preconditioning matrix $\mathbf{P}$ according to equation \ref{prec}. The operator $\mathbf{L}$ and $\mathbf{L^T}$ can be any modeling/migration pair. In this case, we use Reverse-Time Migration (RTM). The illustration is modified from \cite[]{madagascar}.
+
+\plot{conj}{width=1.0\columnwidth}{Changes in Conjugate-gradient algorithms to incorporate preconditioner}
 
 We perform least-square reverse time migration using conjugate gradients for 20 iterations. The result without and without preconditioner is shown in Figure. The LSRTM image with precondtioner leads to a noticeable improvement in resolution. The amplitudes appear more balance, and the reflectors at greater depth are better illuminated. 
 
