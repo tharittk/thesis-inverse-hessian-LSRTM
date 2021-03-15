@@ -22,8 +22,8 @@ The task of seimic imaging (or migration) is to construct the earth image repres
 
 However, one can see that $\mathbf{m_{mig} = L^{T}d}$ is not the solution to the problem $\mathbf{d=Lm}$. In fact, the least-squares solution is $\mathbf{m = (L^{T}L)^{-1} L^{T} d}$. The missing term in $\mathbf{m_{mig}}$ is $\mathbf{(L^{T}L)^{-1}}$ which is called Inverse Hessian.
 
-\plot{shots}{width=0.45\columnwidth}{Synthetic Shot record}
-\multiplot{2}{mig1,lsrtm}{width=0.45\columnwidth}{RTM Image(left) without Inverse Hessian (right) with Inverse Hessian }
+\plot{shots}{width=0.45\columnwidth}{Simple Layer - Shot record}
+\multiplot{2}{mig1,lsrtm}{width=0.45\columnwidth}{Simple Layer - RTM Image(left) without Inverse Hessian (right) with Inverse Hessian }
 
 Consider the synthetic shot record $\mathbf{d}$ in Figure \ref{fig:shots} generated using finite-differnece wave propagator. If we apply the migration operator $\mathbf{L^T}$, we get the image in Figure \ref{fig:mig1}. In contrast, the image in Figure \ref{fig:lsrtm} is when we compensated the standard migrated image $\mathbf{m_{mig} = L^{T}d }$ with the Inverse Hesssian $\mathbf{(L^{T}L)^{-1}}$ through the iterative inversion. One can see that both images are structurally similar. This is due to the fact that mentioned earlier that it is only the velocity model that control the structural accuracy of the migrated image. Here, we do not change or make an update to velocity model. But one can notice obvious differences in terms of amplitude balancing and resolutions. The $\mathbf{m = (L^{T}L)^{-1} L^{T} d}$ image has more balancing amplitude and improved resolution. This is the simple illustration why the having accurately estimated inverse Hessian is beneficial.
 
