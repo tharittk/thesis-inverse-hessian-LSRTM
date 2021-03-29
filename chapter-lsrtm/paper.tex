@@ -117,7 +117,7 @@ Next, we are still testing our method with synthetic data, but now we are using 
 
 Starting with the shot record in Fig ~\ref{fig:bshots45}, we proceed as before by perform the Reverse-Time Migration. The result prior to removing low freqeuncy noise is shown in Fig ~\ref{fig:mig1} while the image after removeing it is shown in Fig ~\ref{fig:bmig1} . We can immediately see that in this case, the low frequency predominate the image and likely to cause trouble in later step as we are trying to find the frequency weight $\mathbf{W_f}$. 
 
-\plot{mig1}{width=0.6\columnwidth}{Sigsbee - RTM image before remove low-frequency noise}
+\plot{smig1}{width=0.6\columnwidth}{Sigsbee - RTM image before remove low-frequency noise}
 \plot{bmig1}{width=0.6\columnwidth}{Sigsbee - RTM image after remove low-frequency noise}
 
 We solve for weight in depth domain $\mathbf{W}$ and frequency domain $\mathbf{W_f}$ shown in Fig \ref{fig:iw-2d}, \ref{fig:iwf-2d} respectively. We can see that the weight in frequency domain looks unrealistic because with the presence of flat layers, the output of 2D Fourier Transform of the image should appear mostly around wavenumber $\mathbf{k_x} \approx 0$ i.e. 90 degree dip. In fact, this is what we see in ~\ref{fig:iwf,iwf5,iwf10} in case of Marmousi model. We think this is because the artifacts of RTM (low frequency noise) makes it harder for the algorithms to find the true/resonable weight.

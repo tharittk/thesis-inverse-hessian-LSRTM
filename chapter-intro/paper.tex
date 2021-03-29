@@ -4,35 +4,33 @@
 \maketitle
 \inputdir{../chapter-intro/intro}
 
-\begin{comment}
-Energy companies rely on accurate subsurface images of the Earth's interior in order to make exploration decisions. The image is a final product of acquisition and processing of seismic data, using elastic waves reflected from subsurface structures. The last stage, after the geophysicists estimate essential parameters from the data, is called imaging. At this point, the choice of imaging algorithms is made based primarily on the trade off between the computational cost and the accuracy of the image. The state-of-the-art industry practice is called least-squares imaging and involves the algorithm running iteratively to improve the image quality. However, this practice is computationally expensive and only few iterations are possible because of the large scale of the problem. 
-
-%
-
-As recognized by previous researchers, the algorithm can be accelerated if the inverse Hessian matrix can be accurately approximated. Conventionally, the inverse Hessian is replaced by the identity matrix as an input to algorithms, which is not a correct assumption. This is because it is not practical to form the inverse Hessian explicitly as it involves directly inverting an extremely large matrix.
-\end{comment}
 
 \section{Review of Seismic Imaging}
 
 \subsection{Seismic Migration as a adjoint operator}
 
-The seismic data $\mathbf{d}$ that is acquired in the survey has the linear relationship with the earth reflecitivity model $\mathbf{m}$ as $\mathbf{d=Lm}$. The contrast of the lithology in the subsurface leads to difference in acoustic impedance and hence reflectivity $\mathbf{m}$. $\mathbf{L}$ is the operator that incorporates the physics of seismic wave propagation involved from the source to the subsurface and back to the receivers. In practice, choices of $\mathbf{L}$ can be classified to 2 categories: ray-based and wave-equation-based. The velocity model of the subsurface embedded in $\mathbf{L}$ is the crucial parameter that control the structural accuracy of the migrated image. In the subsequent work presented, we are dealing exclusively with the situation (i.e the stage of imaging project) where the velocity model is accuratedly estimated and left unchanged throughout.
+The seismic data $\mathbf{d}$ that is acquired in the survey approximately has the linear relationship with the earth reflecitivity model $\mathbf{m}$ as $\mathbf{d=Lm}$. The contrast of the lithology in the subsurface leads to difference in acoustic impedance and hence reflectivity $\mathbf{m}$. $\mathbf{L}$ is the operator that incorporates the physics of seismic wave propagation involved from the source to the subsurface and back to the receivers. In practice, choices of $\mathbf{L}$ can be classified to 2 categories: ray-based and wave-equation-based. The velocity model of the subsurface embedded in $\mathbf{L}$ is the crucial parameter that control the structural accuracy of the migrated image. In the subsequent work presented in this thesis, we are dealing exclusively with the situation (i.e the stage of imaging project) where the velocity model is assumed to be accurately estimated and left unchanged throughout. Otherwise, they problem will be non-linear which requires the different optimization approach.
 
-The task of seimic imaging (or migration) is to construct the earth image represented by $\mathbf{m}$ from the acquired data $\mathbf{d}$. It is recognized that seismic migration is an adjoint operator $\mathbf{L^T}$of the its associated forward modeling $\mathbf{L}$ \cite[]{claerbout1992earth}. In other words, the seismic image is constructed from back-projecting the seismic energy acquired on the surface to the point in the subsurface where that energy comes from. This process is kinematically equivalent to applying adjoint operator $\mathbf{L^T}$.
+The task of seimic imaging (or migration) is to construct the earth image represented by $\mathbf{m}$ from the acquired data $\mathbf{d}$. It is recognized that seismic migration is an adjoint operator $\mathbf{L^T}$of the its associated forward modeling $\mathbf{L}$ \cite[]{claerbout1992earth}. In other words, the seismic image is constructed from back-projecting the seismic energy acquired on the surface to the point in the subsurface where that energy comes from. This process is kinematically equivalent to applying adjoint operator $\mathbf{L^T}$ to the data $\mathbf{d}$.
 
-However, one can see that $\mathbf{m_{mig} = L^{T}d}$ is not the solution to the problem $\mathbf{d=Lm}$. In fact, the least-squares solution is $\mathbf{m = (L^{T}L)^{-1} L^{T} d}$. The missing term in $\mathbf{m_{mig}}$ is $\mathbf{(L^{T}L)^{-1}}$ which is called Inverse Hessian.
+However, one can see that $\mathbf{m_{mig} = L^{T}d}$ is not the solution to the problem $\mathbf{d=Lm}$. In fact, the least-squares solution is $\mathbf{m = (L^{T}L)^{-1} L^{T} d}$. The missing term in $\mathbf{m_{mig}}$ is $\mathbf{(L^{T}L)^{-1}}$ which is called Inverse Hessian. In other words, the migrated image is when we assum the inverse Hessian is identity matrix which is not generally true.
 
 \plot{shots}{width=0.45\columnwidth}{Simple Layer - Shot record}
+
 \multiplot{2}{mig1,lsrtm}{width=0.45\columnwidth}{Simple Layer - RTM Image(left) without Inverse Hessian (right) with Inverse Hessian }
 
-Consider the synthetic shot record $\mathbf{d}$ in Figure \ref{fig:shots} generated using finite-differnece wave propagator. If we apply the migration operator $\mathbf{L^T}$, we get the image in Figure \ref{fig:mig1}. In contrast, the image in Figure \ref{fig:lsrtm} is when we compensated the standard migrated image $\mathbf{m_{mig} = L^{T}d }$ with the Inverse Hesssian $\mathbf{(L^{T}L)^{-1}}$ through the iterative inversion. One can see that both images are structurally similar. This is due to the fact that mentioned earlier that it is only the velocity model that control the structural accuracy of the migrated image. Here, we do not change or make an update to velocity model. But one can notice obvious differences in terms of amplitude balancing and resolutions. The $\mathbf{m = (L^{T}L)^{-1} L^{T} d}$ image has more balancing amplitude and improved resolution. This is the simple illustration why the having accurately estimated inverse Hessian is beneficial.
+
+
+To illustrate the effect of incorporating the inverse Hessian term, consider the synthetic shot record $\mathbf{d}$ in Figure \ref{fig:shots} generated using finite-differnece wave propagator. If we apply the migration operator $\mathbf{L^T}$, we get the image in Figure \ref{fig:mig1}. In contrast, the image in Figure \ref{fig:lsrtm} is when we compensated the standard migrated image $\mathbf{m_{mig} = L^{T}d }$ with the Inverse Hesssian $\mathbf{(L^{T}L)^{-1}}$ through the iterative inversion. One can see that both images are structurally similar. This is due to the fact that mentioned earlier that it is only the velocity model that controls the structural accuracy of the migrated image. Here, we do not change or make an update to velocity model through the iterative inversion. One can notice obvious differences in terms of amplitude balancing and resolutions. The $\mathbf{m = (L^{T}L)^{-1} L^{T} d}$ image has more balancing amplitude and improved resolution. This is the simple illustration that having accurately estimated inverse Hessian is beneficial.
 
 
 \section{Development in Inverse Hessian Estimation}
 
 Least-squares migration (LSM) is a well-established technique for improving the quality of seismic imaging through inversion \cite[]{nemeth,ronen}. By formulating seismic imaging as a linear estimation problem, least-squares migration utilizes the power of iterative inversion for recovering the reflectivity of subsurface structures. In recent years, least-squares imaging, in particular LSRTM (least-square reverse-time migration) has found many successful applications \cite[]{dai,wang,wong}.
 
-The least-squares formulation involves the inverse Hessian operator. The exact computation of such inverse is prohibitively expansive. In the conventional approach, the inverse Hessian is approximated by iterative methods, such as conjugate gradients \cite[]{tarantola,sun,xue}. This raises the cost of LSRTM to the cost of migration and modeling multiplied by the number of iterations. Only a small number of iterations can be affordable in practice. 
+The least-squares formulation involves the inverse Hessian operator. As recognized by previous researchers, the algorithm can be accelerated if the inverse Hessian matrix can be accurately approximated. Normally, the inverse Hessian is replaced by the identity matrix i.e. when only migration is performed, which is not a correct assumption. This is because it is not practical to form the inverse Hessian explicitly as it involves directly inverting an extremely large matrix.
+
+In the conventional approach, the inverse Hessian is approximated by iterative methods, such as conjugate gradients \cite[]{tarantola,sun,xue}. This raises the cost of LSRTM to the cost of migration and modeling multiplied by the number of iterations. Only a small number of iterations can be affordable in practice. 
 
 To reduce this cost or, alternatively, to reduce the number of iterations by accelerating the iterative convergence, a number of methods have been proposed in the literature for approximating the inverse Hessian using relatively inexpensive computations. \cite{rickett} estimated a simple scaling operator to approximate the inverse Hessian with a diagonal matrix. \cite{guitton} and \cite{greer} extended this approach to matching filters, approximating the inverse Hessian with a nonstationary convolution operator. This approach is also known as \emph{migration deconvolution} \cite[]{hu2001,yu2006}. \cite{aoki} approximated inverse Hessian as a deblurring filter for regularization and precondition scheme. \cite{kaur} adopt the deep learning technique and use generative adversarial networks in a conditional setting (CycleGANs) to approximate inverse Hessian.
 
@@ -41,14 +39,12 @@ This work is motivated mainly by an asymptotic theory \cite[]{miller1987,bleiste
 
 \section{Technical Contributions}
 
-We propose to approximate the inverse Hessian by reformulate by simultaneously estimating a chain of weights in the space and frequency domains from initial images. We design this chain to be symmetric to preserve the symmetric property of the Hessian.
-Once the weight matrices are estimated, they can be efficiently approximate the inverse Hessian. Alternatively, the approximate inverse Hessian can be incorporated in the form of a preconditioner to accelerate the convergence of iterative LSRTM.
+We propose to approximate the inverse Hessian by reformulate by simultaneously estimating a chain of weights in the space and frequency domains from initial images. We design this chain to be symmetric to preserve the symmetric property of the Hessian. Our method which has relatively low computational cost compared to the overall Least-squares migration process. Once the weight matrices are estimated, they can efficiently approximate the inverse Hessian. Alternatively, the approximate inverse Hessian can be incorporated in the form of a preconditioner to accelerate the convergence of iterative LSRTM.
 
 
 \section{Thesis outline}
 
 This undergraduate thesis organized according to the following outline:
-
  
 \begin{itemize}
 
@@ -56,5 +52,5 @@ This undergraduate thesis organized according to the following outline:
 
 \item In Chapter 3, we test the accuracy of the proposed approach using zero-offset synthetic data. We start with the synthetic data from the Marmousi model \cite[]{versteeg1994}. Then, we also test with the real data from Viking Graben. 
 
-\item Subsequently in Chapter 3, we use prestack Marmousi data  to evaluate the effectiveness of the proposed approximation of Inverse Hessian  by using it as a preconditioner for LSRTM.
+\item Subsequently in Chapter 3, we use prestack Marmousi and Sigbee2B data to evaluate the effectiveness of the proposed approximation of Inverse Hessian by using it as a preconditioner for LSRTM.
 \end{itemize}

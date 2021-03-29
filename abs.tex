@@ -1,4 +1,13 @@
 \author{Tharit Tangkijwanichakul, The University of Texas at Austin}
 \title{Abstract}
 \label{ch:abs}
-We approximate the inverse Hessian operator by a chain of weights in time/space and frequency domains. Tests on synthetic data shows that this approach provides an effective approximation while having the minimal cost of forward and inverse FFTs (Fast Fourier Transforms). The method can be applied either for compensating migrated images or in the form of a preconditioner inside iterative least-squares reverse-time migration (LSRTM). As demonstrated by experiments with synthetic data, the latter significantly accelerates the convergence of LSRTM and achieves high-quality imaging results in fewer iterations.
+We propose a novel way to approximate the inverse Hessian operator by a chain of weights in space and frequency domains. We call this method the Chain of Operator. Fundamentally, we approximate the complex operator (Hessian) via the chain of elementary operators (weights). This method is physically intuitive and provide a simple way to invert for the Inverse Hessian. The method can be applied either for compensating migrated images i.e. applying approximated Inverse Hessian directly to migrated image or in the form of a preconditioner inside iterative least-squares reverse-time migration (LSRTM). 
+
+Tests on synthetic and real data shows that this approach provides an effective approximation of the Inverse Hessian while having the minimal cost of forward and inverse FFTs (Fast Fourier Transforms). However, the effectiveness of the methods vary quite greatly from dataset to dataset.
+
+When used for compensating migrated image, the method proves noticeably effective in synthetic Marmousi dataset. With real Viking Graben dataset, the method has difficulties in estimating weights due to muted area of the data. However, with some adjustments, the method shows that our method moderately improves the image resolution and amplitude balance. Plus, when examining frequency spectrum, compensating the image by an approximated inverse Hessian emulates the effect of iterative LSRTM. 
+
+
+When used the approximated Inverse Hessian to form a preconditioner in LSRTM, the result with Marmousi dataset shows that it can significantly accelerates the convergence of LSRTM and achieves high-quality imaging results in fewer iterations. However, when experimented with the Sigsbee model, the method shows to be marginally effective. Particularly. yt appears to have difficulties in solving for weight in freqeuncy domain as migrating the Sigsbee data with RTM tends to produce strong low-frequency noise.
+
+Overall, our experiments can be considered as a proof of concept that we can approximate the complex operator via the chain of elementary operators at least in its the pariticular application to Least-squares Migration.
