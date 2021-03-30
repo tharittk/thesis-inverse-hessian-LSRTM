@@ -1,56 +1,60 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Simple Layer - Shot record}}{2}{figure.1.1}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Simple Layer - RTM Image(left) without Inverse Hessian (right) with Inverse Hessian }}{2}{figure.1.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{2}{figure.1.2}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{2}{figure.1.2}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Simple Layer - RTM Image(left) without Inverse Hessian (right) with Inverse Hessian }}{3}{figure.1.2}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{3}{figure.1.2}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{3}{figure.1.2}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic drawing of chain of operators}}{6}{figure.2.1}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Marmousi - Shot gathers}}{12}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Marmousi - Migration velocity for prestack migration}}{12}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Marmousi - RTM Image}}{13}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Marmousi - $\mathbf {W^{-1}}$ 2, 5, 10 iteration of update}}{14}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{14}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{14}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Marmousi - $\mathbf {W_f^{-1}}$ 2, 5, 10 iteration of update}}{15}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{15}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{15}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{15}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Marmousi - Poststack Deconvolution Image 2, 5, 10 iteration of update}}{16}{figure.3.6}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{16}{figure.3.6}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{16}{figure.3.6}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{16}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Viking - Zero-offset shot}}{17}{figure.3.7}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Viking - Dix Velocity for Migration}}{18}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Viking - (left) standard Zero-offset migration (mid) Deconvolved image by chain (right) Iterative LSM}}{18}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{18}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{18}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{18}{figure.3.9}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Viking - Zoom-in comparison}}{19}{figure.3.10}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Viking - Frequency spectrum of - blue: standard ZORTM, red: Deconvolved by chain, pink: Iterative LSM}}{19}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Changes in Conjugate-gradient algorithms to incorporate preconditioner}}{20}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Marmousi - LSRTM Image without (left) and with (left) Preconditioner after 20 iterations}}{21}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{21}{figure.3.13}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{21}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Marmousi - Frequency spectrum of migrated image - blue: standard RTM, red: LSRTM, pink: Precondition LSRTM}}{22}{figure.3.14}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Marmousi - Zoom-in comparison 1}}{22}{figure.3.15}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Marmousi - Zoom-in comparison 2}}{22}{figure.3.16}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Marmousi - Zoom-in comparison 3}}{23}{figure.3.17}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Marmousi - Zoom-in comparison 4}}{23}{figure.3.18}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Marmousi - Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}}{23}{figure.3.19}%
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Marmousi - (left)LSRTM Image without Precondtitioner (mid) with Preconditioner ($\mathbf {W}$,$\mathbf {Wf}$) (right) Preconditioner ($\mathbf {W}$ only )after 100 iterations }}{24}{figure.3.20}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{24}{figure.3.20}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{24}{figure.3.20}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{24}{figure.3.20}%
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Sigsbee - Stratigraphic velocity}}{25}{figure.3.21}%
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Sigsbee - Synthetic shots}}{26}{figure.3.22}%
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Sigsbee - RTM image before remove low-frequency noise}}{26}{figure.3.23}%
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Sigsbee - RTM image after remove low-frequency noise}}{27}{figure.3.24}%
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Sigsbee - Weight in Depth domain $\mathbf {W}$ }}{28}{figure.3.25}%
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Sigsbee - Weight in Frequency domain $\mathbf {W_f}$ }}{28}{figure.3.26}%
-\contentsline {figure}{\numberline {3.27}{\ignorespaces Sigsbee - LSRTM image without preconditioner}}{29}{figure.3.27}%
-\contentsline {figure}{\numberline {3.28}{\ignorespaces Sigsbee - LSRTM image with preconditioner}}{29}{figure.3.28}%
-\contentsline {figure}{\numberline {3.29}{\ignorespaces Sigsbee - LSRTM image without preconditioner after remove low frequency}}{30}{figure.3.29}%
-\contentsline {figure}{\numberline {3.30}{\ignorespaces Sigsbee - LSRTM image with preconditioner after remove low frequency}}{31}{figure.3.30}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces (a)Marmousi - Shot gathers (b) Migration velocity for prestack migration }}{12}{figure.3.1}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{12}{figure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{12}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Marmousi - RTM Image}}{13}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Marmousi - $\mathbf {W^{-1}}$ 2, 5, 10 iteration of update}}{14}{figure.3.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{14}{figure.3.3}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{14}{figure.3.3}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Marmousi - $\mathbf {W_f^{-1}}$ 2, 5, 10 iteration of update}}{15}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{15}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{15}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{15}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Marmousi - Poststack Deconvolution Image 2, 5, 10 iteration of update}}{17}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{17}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{17}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{17}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces (Viking - (a) Zero-offset shot (b) Dix Velocity for Migration}}{18}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{18}{figure.3.6}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{18}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Viking - (left) standard Zero-offset migration (mid) Deconvolved image by chain (right) Iterative LSM}}{18}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{18}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{18}{figure.3.7}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{18}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Viking - Zoom-in comparison}}{19}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Viking - Frequency spectrum of - blue: standard ZORTM, red: Deconvolved by chain, pink: Iterative LSM}}{20}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Changes in Conjugate-gradient algorithms to incorporate preconditioner}}{21}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Marmousi - (a) LSRTM Image without and (b) with Preconditioner after 20 iterations}}{22}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Marmousi - Frequency spectrum of migrated image - blue: standard RTM, red: LSRTM, pink: Precondition LSRTM}}{22}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Marmousi - Zoom-in comparison 1}}{23}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Marmousi - Zoom-in comparison 2}}{23}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Marmousi - Zoom-in comparison 3}}{23}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Marmousi - Zoom-in comparison 4}}{24}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Marmousi - Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}}{24}{figure.3.17}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Marmousi - (left)LSRTM Image without Precondtitioner (mid) with Preconditioner ($\mathbf {W}$,$\mathbf {Wf}$) (right) Preconditioner ($\mathbf {W}$ only )after 100 iterations }}{25}{figure.3.18}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{25}{figure.3.18}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{25}{figure.3.18}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{25}{figure.3.18}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Sigsbee - Stratigraphic velocity}}{26}{figure.3.19}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Sigsbee - Synthetic shots}}{27}{figure.3.20}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Sigsbee - RTM image (a) before remove low-frequency noise (b) after remove low-frequency noise}}{28}{figure.3.21}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{28}{figure.3.21}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{28}{figure.3.21}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Sigsbee - (a) Weight in space domain $\mathbf {W}$ (b) in Frequency domain $\mathbf {W_f}$}}{28}{figure.3.22}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{28}{figure.3.22}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{28}{figure.3.22}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Sigsbee - LSRTM image without preconditioner}}{29}{figure.3.23}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Sigsbee - LSRTM image with preconditioner}}{29}{figure.3.24}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Sigsbee - LSRTM image without preconditioner after remove low frequency}}{30}{figure.3.25}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Sigsbee - LSRTM image with preconditioner after remove low frequency}}{31}{figure.3.26}%
 \addvspace {10pt}

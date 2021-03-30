@@ -12,17 +12,17 @@
 \subsection{Chain as a Deconvolution Filter: Synthetic Marmousi data}
 %
 
-We test the idea of of using the chain of operators with Marmousi data \cite[]{versteeg1994}. The shot gather volume is shown in Figure \ref{fig:bshots45} and consists of 45 shots. The migration velocity is shown in Figure \ref{fig:velmig} which is derived from smoothing the stratigraphic slowness. Figure \ref{fig:bmig1} shows reverse-time migarted image using a finite-difference wave propagator. 
+We test the idea of the chain of operators with Marmousi data \cite[]{versteeg1994}. The shot gather volume is shown in Figure \ref{fig:mmbshots45} and consists of 45 shots. The migration velocity is shown in Figure \ref{fig:velmig} which is obtained from smoothing the stratigraphic slowness. Figure \ref{fig:mmbmig1} shows reverse-time migarted image using a finite-difference wave propagator. 
 
-\plot{bshots45}{width=0.6\columnwidth}{Marmousi - Shot gathers}
-\plot{velmig}{width=0.6\columnwidth}{Marmousi - Migration velocity for prestack migration}
-\plot{bmig1}{width=0.6\columnwidth}{Marmousi - RTM Image}
+\multiplot{2}{mmbshots45,velmig}{width=0.45\columnwidth}{ (a)Marmousi - Shot gathers (b) Migration velocity for prestack migration }
+
+\plot{mmbmig1}{width=0.6\columnwidth}{Marmousi - RTM Image}
 
 %
 
 After we obtain the sencond migrated image $\mathbf{m_2}$ by remodeling and remigartion exercise ($\mathbf{L^{T}L}$) to $\mathbf{m_1}$, we form the initial weights $\mathbf{W_0}$ by taking the square-root of smooth division $\mathbf{\frac{m_2}{m_1}}$ as mentioned earlier.
 
-We run the chain solver to estimate $\mathbf{W}$ and $\mathbf{W_f}$ for different numbers of iterations. The residual is about 1.9 $\%$, 0.23 $\%$, 0.21 $\%$ after 2, 5, 10 iterations respectively.These weights are shown in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}). Notice that the weights in space domain $\mathbf{W^{1}}$does not change much after more iterations, contrasting to weights in frequency domain $\mathbf{W_f^{1}}$
+We run the chain solver to estimate $\mathbf{W}$ and $\mathbf{W_f}$ for different numbers of iterations. The residual is about 1.9 $\%$, 0.23 $\%$, 0.21 $\%$ of the zeroth iteration (i.e. with $\mathbf{W}$ = $\mathbf{W_0}$ and $\mathbf{W_f} = \mathbf{I}$) after 2, 5, 10 iterations respectively. These weights are shown in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}. Notice that the weights in space domain $\mathbf{W^{-1}}$ does not change much after more iterations, contrasting to the behavior of the weight in frequency domain $\mathbf{W_f^{-1}}$
 
 \multiplot{3}{iw,iw5,iw10}{width=0.48\columnwidth}{Marmousi - $\mathbf{W^{-1}}$ 2, 5, 10 iteration of update}
 
@@ -30,7 +30,8 @@ We run the chain solver to estimate $\mathbf{W}$ and $\mathbf{W_f}$ for differen
 
 %
 
-Subsequently, we used chain weights to perform poststack deconvolution as prescribed in equation (\ref{lsmig}). The result (Figure \ref{fig:decon2,decon5,decon10})shows an immediate improvement in resolution improvement over the initial RTM image. The deconvolved image with 5 iterations has higher resolution compared to the one run with 2 iterations. However, the image with 5 iterations gives a smoother image. This may be from the the fact that we get smoother freqeuncy weight $\mathbf{Wf^{-1]}}$.
+Subsequently, we used chain weights to perform poststack deconvolution as prescribed in equation (\ref{lsmig}). The result (Figure \ref{fig:decon2,decon5,decon10}) shows an immediate improvement in resolution over that of the initial RTM image. The deconvolved image with 5 iterations has higher resolution compared to the one run with 2 iterations. However, the image with 5 iterations gives a smoother image. This may be from the the fact that we get smoother freqeuncy weight $\mathbf{Wf^{-1]}}$ in the area where data mostly reside in Fourier domain i.e. 90° dip in (kx,kz) space.
+
 
 \multiplot{3}{decon2,decon5,decon10}{width=0.48\columnwidth}{Marmousi - Poststack Deconvolution Image 2, 5, 10 iteration of update}
 
@@ -40,25 +41,27 @@ Subsequently, we used chain weights to perform poststack deconvolution as prescr
 \subsection*{Chain as a Deconvolution Filter: Real Viking Graben data}
 \inputdir{../chapter-lsrtm/vk}
 
-In this experiment, we compare the result of using the chain of operator as a deconvolution filter applied to a zero-offset migrated image as in (\ref{lsmig}) with the traditional zero-offset least-square migration. The zero-offset data (Fig \ref{fig:zodata}) comes from the Viking Graben Field. Its corresponding migration velocity is in (\ref{fig:veldix}). We migrated the data using zero-offset RTM. Noted that in the zero-offset data, we have area that we muted during the pre-processing i.e.the area above 0.4s in data domain. Thus, the migrated image will have muted area in depth domain near the surface too.The experiment shows that if we solve for W, Wf using whole stack, the result after applied deconvolution operator will have high frequency artifacts in the area where the data was muted originally.
+In this experiment, we compare the result of using the chain of operator as a deconvolution filter applied to a zero-offset migrated image as in equation (\ref{lsmig}) with the traditional zero-offset iterative least-square migration. The zero-offset data (Fig \ref{fig:zodata}) comes from the Viking Graben Field. Its corresponding migration velocity is in (\ref{fig:veldix}). We migrated the data using zero-offset RTM. 
 
-\plot{zodata}{width=0.6\columnwidth}{Viking - Zero-offset shot}
-\plot{veldix}{width=0.5\columnwidth}{Viking - Dix Velocity for Migration}
+\multiplot{2}{zodata,veldix}{width=0.45\columnwidth}{(Viking - (a) Zero-offset shot (b) Dix Velocity for Migration}
+
+Noted that in the zero-offset data, we have area that we muted during the pre-processing (the area above 0.4s) Thus, the migrated image will have muted area in space domain near the surface too.The experiment shows that if we solve for $\mathbf{W}$, $\mathbf{Wf}$ using whole image, the result after applied deconvolution operator will have high frequency artifacts in the area where the data was muted originally.
 
 %
-Hence, we will test the effectiveness of deconvolution filter only the area where we have completed image. In other words, the weights are solved using input two windowed stacks of the first and second migrated image. In Fig \ref{fig:cmig1}, \ref{fig:cdecon}, \ref{fig:lsm0} we show windowed section of the migrated image, deconvolved image by chain weights, and traditional iterative least-square migration repectively. Noted that the amplitude range of deconvolutioned image and LSM image are about the same while that of standard migrated image is in different range.  
+Hence, we will test the effectiveness of deconvolution filter only the area where we have completed image. In other words, the weights are solved using input two windowed stacks of the first and second migrated image. In Fig \ref{fig:cmig1}, \ref{fig:cdecon}, \ref{fig:lsm0} we show windowed section of the migrated image, deconvolved image by chain weights, and traditional iterative least-square migration repectively. To be clear, the image from iterative LS comes from using the whole image as an input still. We can see the amplitude range of deconvolutioned image and LSM image are about the same while that of standard migrated image is in different range.  
 
 \multiplot{3}{cmig1,cdecon,lsm0}{width=0.35\columnwidth}{Viking - (left) standard Zero-offset migration (mid) Deconvolved image by chain (right) Iterative LSM}
 
 
-Fig \ref{fig:zooms} shows the zoom-in portion of these images. We can see that the layers in deconvolutioned image looks more similar to LSM image.
+Fig \ref{fig:zooms} shows the zoom-in portion of these images. We can see that the layers in deconvolutioned image looks more similar to LSM image in terms of amplitude balancing.
 
 \plot{zooms}{width=1.0\columnwidth}{Viking - Zoom-in comparison}
 
-In Fig \ref{fig:vkspec}, deconvolution by chain can recover high frequency but not as good as iterative LSM, which has higher computational cost. The the pattern of frequency spectrum of deconvolved image by chain and that of iterative LSM appear similar which suggests that the chain deconvolution filter derived from the chain emulates the inverse Hessian estimated by iterative LSM.
+In Fig \ref{fig:vkspec}, we use the average frequency spectrum as one of the available quantitative tools to compare the image resolution. Deconvolution by chain can recover high frequency but not as good as iterative LSM, which has higher computational cost. The the pattern of frequency spectrum of deconvolved image by chain and that of iterative LSM appear similar which suggests that in this case the chain deconvolution filter derived from the chain emulates the inverse Hessian estimated by iterative LSM.
 
 \plot{vkspec}{width=0.5\columnwidth}{Viking - Frequency spectrum of - blue: standard ZORTM, red: Deconvolved by chain, pink: Iterative LSM}
 
+So far, estimating the inverse Hessian operator by chain of operators shows a promising result on the synthetic data. On the real Viking Graben data, we still gain the improvement of the image from using the method. However, the experiment shows that imperfects of the real data can limit the usability of the method.
 
 
 %
@@ -68,13 +71,15 @@ In Fig \ref{fig:vkspec}, deconvolution by chain can recover high frequency but n
 \subsection{Chain as a Preconditioner for Least-square RTM}
 \inputdir{../chapter-lsrtm/pre}
 
-We use the weights in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}) to form a preconditioner according to equation (\ref{prec}). We chose the weights after 2 update iterations. In Figure \ref{fig:conj}, we show the change made to the generic conjugate-gradient algorithms to incorporate the preconditioning matrix $\mathbf{P}$ according to equation \ref{prec}. The operator $\mathbf{L}$ and $\mathbf{L^T}$ can be any modeling/migration pair. In this case, we use Reverse-Time Migration (RTM). The illustration is modified from \cite[]{madagascar}.
+We use the weights in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}) to form a preconditioner according to equation (\ref{prec}). In particular, we chose the weights obtained after 2 update iterations. This choice was not made based on any preference. Rather, it was due to availibity of results at that time when this subsequent experiment was performed.
+
+In Figure \ref{fig:conj}, we show the change made to the generic conjugate-gradient algorithms to incorporate the preconditioning matrix $\mathbf{P}$ according to equation \ref{prec}. The operator $\mathbf{L}$ and $\mathbf{L^T}$ can be any modeling/migration pair. In this case, we use Reverse-Time Migration (RTM). The illustration is modified from \cite[]{madagascar}. Here, we can see that incorporating preconditioning operator $\mathbf{P}$ incurs a negligible cost to the overall cost of LSRTM. In particular, the preconditioner costs 2 FFTs O(nlogn) while the cost of RTM significantly surpasses that. See the Appendix for the complete code of preconditioner (Mtf2dprec.c).
 
 \plot{conj}{width=1.0\columnwidth}{Changes in Conjugate-gradient algorithms to incorporate preconditioner}
 
-We perform least-square reverse time migration using conjugate gradients for 20 iterations. The result without and without preconditioner is shown in Figure. The LSRTM image with precondtioner leads to a noticeable improvement in resolution. The amplitudes appear more balance, and the reflectors at greater depth are better illuminated. 
+Once we have all the code ready, we perform least-square reverse time migration using conjugate gradients for 20 iterations. The result without and without preconditioner is shown in Figure ~\ref{fig:cgrad20,pgrad20}. The LSRTM image with precondtioner leads to a noticeable improvement in resolution. The amplitudes appear more balance, and the reflectors at greater depth are better illuminated. 
 
-\multiplot{2}{cgrad20,pgrad20}{width=0.45\columnwidth}{Marmousi - LSRTM Image without (left) and with (left) Preconditioner after 20 iterations}
+\multiplot{2}{cgrad20,pgrad20}{width=0.45\columnwidth}{Marmousi - (a) LSRTM Image without and (b) with Preconditioner after 20 iterations}
 
 %
 
@@ -94,7 +99,8 @@ For closer inspection, the selected zoom-in sections are also provided in Figure
 
 %
 
-Subsequently, we run LSRTM for 100 iterations. The misfit in data domain (Figure \ref{fig:dres100}) is calculated using the $L_2$-norm of data residual $\mathbf{|| d_k - d ||_{2}}$ normalized by $\mathbf{||d ||_{2}}$. It confirms that the chain preconditioner leads to faster convergence. The LSRTM images after 100 iteration are shown in Figures \ref{fig:cgrad100,pgrad100,wwpgrad100}. 
+Subsequently, we run LSRTM for 100 iterations. To quantify the improvement, the misfit in data domain (Figure \ref{fig:dres100}) is calculated using the $L_2$-norm of data residual $\mathbf{|| d_k - d ||_{2}}$ normalized by $\mathbf{||d ||_{2}}$. Here we also include the result of using only space weight $\mathbf{W}$ obtained from taking the square root of smooth division of $\frac{m_2}{m_1}$ while leaving $\mathbf{W_f}$ as $\mathbf{I}$ as precondtioner. This is the simplest form of preconditioner one comes up with.
+The plot confirms that the chain preconditioner leads to faster convergence while using space-only weight shows slight improvement in convergence. The LSRTM images after 100 iteration are shown in Figures \ref{fig:cgrad100,pgrad100,wwpgrad100}. 
 
 \plot{dres100}{width=0.5\columnwidth}{Marmousi - Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}
 
@@ -104,36 +110,33 @@ Subsequently, we run LSRTM for 100 iterations. The misfit in data domain (Figure
 
 In terms of amplitude balancing, LSRTM without preconditioner after 100 iterations gives similar image to the image from LSRTM with precondtioner after only 20 iterations.
 
-
-\newpage
 \inputdir{../chapter-lsrtm/sigs}
 
-Next, we are still testing our method with synthetic data, but now we are using different geological setting. In the following experiment, we use the Sigsbee2A model which emulates the geological setting of the Gulf of Mexico. It is characterized by presences of nearly flat layers and large salt body as shown by the stratigraphic velocity in Fig ~\ref{fig:veltrue}. The model was developed by The  Subsalt  Multiples  Attenuation  and  Reduction  Technology  Joint  Venture(SMAART JV).
+Next, we are still testing our method with synthetic data, but now we are using the data with a different geological setting. In the following experiment, we use the Sigsbee2A model which emulates the geological setting of the Gulf of Mexico. It is characterized by presences of nearly flat layers and a large salt body as shown by the stratigraphic velocity in Fig ~\ref{fig:veltrue}. The model was developed by The  Subsalt  Multiples  Attenuation  and  Reduction  Technology  Joint  Venture(SMAART JV).
 
 \plot{veltrue}{width=0.7\columnwidth}{Sigsbee - Stratigraphic velocity}
 
 
 \plot{bshots45}{width=0.6\columnwidth}{Sigsbee - Synthetic shots}
 
-Starting with the shot record in Fig ~\ref{fig:bshots45}, we proceed as before by perform the Reverse-Time Migration. The result prior to removing low freqeuncy noise is shown in Fig ~\ref{fig:mig1} while the image after removeing it is shown in Fig ~\ref{fig:bmig1} . We can immediately see that in this case, the low frequency predominate the image and likely to cause trouble in later step as we are trying to find the frequency weight $\mathbf{W_f}$. 
+Starting with the shot record in Fig ~\ref{fig:bshots45}, we proceed as before by perform the Reverse-Time Migration. The result prior to removing low freqeuncy noise is shown in Fig ~\ref{fig:smig1} while the image after removeing it is shown in Fig ~\ref{fig:bmig1} . From this initial assessment, we can expect in this dataset, the low frequency predominates the migrated image and likely to cause difficulties to the chain algorithm in later step as we are trying to find the frequency weight $\mathbf{W_f}$. 
 
-\plot{smig1}{width=0.6\columnwidth}{Sigsbee - RTM image before remove low-frequency noise}
-\plot{bmig1}{width=0.6\columnwidth}{Sigsbee - RTM image after remove low-frequency noise}
-
-We solve for weight in depth domain $\mathbf{W}$ and frequency domain $\mathbf{W_f}$ shown in Fig \ref{fig:iw-2d}, \ref{fig:iwf-2d} respectively. We can see that the weight in frequency domain looks unrealistic because with the presence of flat layers, the output of 2D Fourier Transform of the image should appear mostly around wavenumber $\mathbf{k_x} \approx 0$ i.e. 90 degree dip. In fact, this is what we see in ~\ref{fig:iwf,iwf5,iwf10} in case of Marmousi model. We think this is because the artifacts of RTM (low frequency noise) makes it harder for the algorithms to find the true/resonable weight.
+\multiplot{2}{smig1,bmig1}{width=0.45\columnwidth}{Sigsbee - RTM image (a) before remove low-frequency noise (b) after remove low-frequency noise}
 
 
-\plot{iw-2d}{width=0.6\columnwidth}{Sigsbee - Weight in Depth domain $\mathbf{W}$ }
-\plot{iwf-2d}{width=0.6\columnwidth}{Sigsbee - Weight in Frequency domain $\mathbf{W_f}$ }
+We solve for weight in space domain $\mathbf{W}$ and frequency domain $\mathbf{W_f}$ shown in Fig \ref{fig:iw-2d}, \ref{fig:iwf-2d} respectively. We can see that the weight in frequency domain looks unrealistic because with the presence of flat layers, the output of 2D Fourier Transform of the image should appear to be 90° dip in (kx,kz) domain. In fact, this is what we see in ~\ref{fig:iwf,iwf5,iwf10} in case of Marmousi model. We think this is because the artifacts of RTM (low frequency noise) makes it harder for the algorithms to find the true/resonable weights.
 
-We carry out the experiment and perform Least-square RTM. Noted that in the process of LSRTM, we did not apply bandpass filter to remove low-frequency artifacts in any step of conjugate gradient. The result of LSRTM without preconditioner and with preconditioner is shown in Fig ~\ref{fig:cgrad-out0} and ~\ref{fig:pcgrad-out0} respectively.
+
+\multiplot{2}{iw-2d,iwf-2d}{width=0.45\columnwidth}{Sigsbee - (a) Weight in space domain $\mathbf{W}$ (b) in Frequency domain $\mathbf{W_f}$}
+
+We carry out the experiment and perform Least-square RTM. Noted that in the process of LSRTM, we did not apply low-pass filter to remove low-frequency artifacts in any step of conjugate gradient. The result of LSRTM without preconditioner and with preconditioner is shown in Fig ~\ref{fig:cgrad-out0} and ~\ref{fig:pcgrad-out0} respectively.
 
 \plot{cgrad-out0}{width=0.6\columnwidth}{Sigsbee - LSRTM image without preconditioner}
 \plot{pcgrad-out0}{width=0.6\columnwidth}{Sigsbee - LSRTM image with preconditioner}
 
-From these figuresref{fig:cgrad-out0} and ~\ref{fig:pcgrad-out0}, we can see that Least-squares RTM has trouble getting attenuating the low-frequency noise in the area above the salt body. However, to the left of the image where there is no salt body, LSRTM with precondtioner gives a better illumation. In fact, below the salt body around 12-16 km, Preconditioned LSRTM also gives slightly better illumationation. 
+From these Figures ~\ref{fig:cgrad-out0} and ~\ref{fig:pcgrad-out0}, we can see that Least-squares RTM has trouble getting attenuating the low-frequency noise in the area above the salt body. However, to the left of the image where there is no salt body, LSRTM with precondtioner gives a better illumation. In fact, below the salt body around 12-16 km, preconditioned LSRTM also gives slightly better illumationation. 
 
 \plot{lsrtm0}{width=0.6\columnwidth}{Sigsbee - LSRTM image without preconditioner after remove low frequency}
 \plot{plsrtm0}{width=0.6\columnwidth}{Sigsbee - LSRTM image with preconditioner after remove low frequency}
 
-Fig ~\ref{fig:lsrtm0} and ~\ref{fig:plsrtm0} show the LSRTM after remove the low frequency noise. Here, we see that the preconditioner has a very small positive effect on the final image, far less effective than the case of Marmousi data set. As mentioned above, we attribute ineffiveness to the difficult in dealing with low-frequency noise originated from nature of RTM algorithms itself along with the presence of salt body. Given Sigsbee's complex geological setting, we do not practically have any alternatives to RTM as we must rely on two-way wavefield migration to correctly and suffienctly image geological features.
+Fig ~\ref{fig:lsrtm0} and ~\ref{fig:plsrtm0} show the LSRTM after remove the low frequency noise. Here, we see that the preconditioner has a very small positive effect on the final image, far less effective than the case of Marmousi data set. As mentioned above, we attribute ineffectiveness to the difficult in dealing with low-frequency noise originated from nature of RTM algorithms itself along with the presence of salt body. Given Sigsbee's complex geological setting, we do not practically have any alternatives to RTM as we must rely on two-way wavefield migration to correctly and suffienctly image geological features.

@@ -7,12 +7,21 @@
 %\section{Summary}
 
 
-In this work, we propose a novel approach to approximating the inverse Hessian operator in least-squares migration. The method is data-driven and involves solving for weights in the original and Fourier domains that match two subsequent migrated images using a chain of operators. Our synthetic example shows that the preconditioner formed by this approach can be used to accelerate iterative least-square migration. This results in the final image with improved resolution, balanced amplitudes, and a better data fit.
+In this work, we propose a novel approach to approximating the inverse Hessian operator in least-squares migration. The method is data-driven and involves solving for weights in the original and Fourier domains that match two subsequent migrated images using the method called "chain of operators". The approximated inverse Hessian can be apply either as a decovolution filter to the migrated image or used to form a preconditioner for iterative prestack least-squares migration.
+
+ Our synthetic example shows the promising results in some cases and also reveals the challenges to the usability and limit of the algorithm. In the case that the algorithm work nicely, the results in the final image have improved resolution, balanced amplitudes, and a better data fit.
+
+ Overall, this work serves as a proof of concept of our proposed method "Chain of Operators". In other words, the complex operator can be effectively approximated through the chain of parameterized elementary operators - at least in the application of seismic least-square migration.
 
 
 
 \section{Future work}
-In the future, 
+For this particular application, we hope to further investigate the effectiveness of the algorithm with the real field-size prestack dataset. It is also worth studying how we can come up with other scheme of solving for the chain weights beside the regularized Gauss-Newton approach.
+
+In the field of seismic processing, the idea of chain of operators has many other promising applications. One area is to find the seismic shift between to two seismic traces. We can represent a small shift in seismic trace by one elemetary operator. Then, the bigger shift will become the chain of this small shift operators. In fact, we can also incorporate this shift to the approximation of the Hessian operator too.
+
+
+It is also worth emphasizing that the idea of the chain of operators is not limited to the field of seismic processing. As we can see from the motivation and the generality of the hypothesis that "the complex operator can be effectively approximated through the chain of parameterized elementary operators".
 
 \appendix
 \section{Code}

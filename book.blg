@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: book.aux
+A level-1 auxiliary file: tpg.aux
+A level-1 auxiliary file: intro.aux
+A level-1 auxiliary file: chapter-intro/paper.aux
+A level-1 auxiliary file: chapter-background/paper.aux
+A level-1 auxiliary file: chapter-lsrtm/paper.aux
+A level-1 auxiliary file: chapter-conclusion/paper.aux
+The style file: seg.bst
+Database file #1: thesis.bib
+Warning--empty publisher in claerbout1992earth
+You can't pop an empty literal stack for entry claerbout1992earth
+while executing---line 1586 of file seg.bst
+You've used 24 entries,
+            2639 wiz_defined-function locations,
+            841 strings with 9495 characters,
+and the built_in function-call counts, 10354 in all, are:
+= -- 1149
+> -- 344
+< -- 15
++ -- 120
+- -- 113
+* -- 896
+:= -- 1713
+add.period$ -- 24
+call.type$ -- 24
+change.case$ -- 178
+chr.to.int$ -- 23
+cite$ -- 25
+duplicate$ -- 377
+empty$ -- 778
+format.name$ -- 145
+if$ -- 2147
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 25
+newline$ -- 77
+num.names$ -- 70
+pop$ -- 138
+preamble$ -- 2
+purify$ -- 178
+quote$ -- 0
+skip$ -- 287
+stack$ -- 0
+substring$ -- 940
+swap$ -- 54
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 142
+warning$ -- 1
+while$ -- 94
+width$ -- 0
+write$ -- 270
+(There was 1 error message)
