@@ -9,12 +9,12 @@
 \section{Zero-offset Experiments}
 \inputdir{../chapter-lsrtm/pre}
 
-\subsection{Chain as a Deconvolution Filter: Synthetic Marmousi data}
+\subsection{Chain as a Migration Deconvolution Filter: Synthetic Marmousi data}
 %
 
 We test the idea of the chain of operators with Marmousi data \cite[]{versteeg1994}. The shot gather volume is shown in Figure \ref{fig:mmbshots45} and consists of 45 shots. The migration velocity is shown in Figure \ref{fig:velmig} which is obtained from smoothing the stratigraphic slowness. Figure \ref{fig:mmbmig1} shows reverse-time migarted image using a finite-difference wave propagator. 
 
-\multiplot{2}{mmbshots45,velmig}{width=0.45\columnwidth}{ (a)Marmousi - Shot gathers (b) Migration velocity for prestack migration }
+\multiplot{2}{mmbshots45,velmig}{width=0.45\columnwidth}{ (a) Marmousi - Shot gathers (b) Migration velocity for prestack migration }
 
 \plot{mmbmig1}{width=0.6\columnwidth}{Marmousi - RTM Image}
 
@@ -41,9 +41,9 @@ Subsequently, we used chain weights to perform poststack deconvolution as prescr
 \subsection*{Chain as a Deconvolution Filter: Real Viking Graben data}
 \inputdir{../chapter-lsrtm/vk}
 
-In this experiment, we compare the result of using the chain of operator as a deconvolution filter applied to a zero-offset migrated image as in equation (\ref{lsmig}) with the traditional zero-offset iterative least-square migration. The zero-offset data (Fig \ref{fig:zodata}) comes from the Viking Graben Field. Its corresponding migration velocity is in (\ref{fig:veldix}). We migrated the data using zero-offset RTM. 
+In this experiment, we compare the result of using the chain of operator as a deconvolution filter applied to a zero-offset migrated image as in equation (\ref{lsmig}) with the traditional zero-offset iterative least-square migration. The zero-offset data (Fig \ref{fig:zodata}) comes from the Viking Graben Field $\textbf{REF HERE}$. Its corresponding migration velocity is in (\ref{fig:veldix}). We migrated the data using zero-offset RTM. 
 
-\multiplot{2}{zodata,veldix}{width=0.45\columnwidth}{(Viking - (a) Zero-offset shot (b) Dix Velocity for Migration}
+\multiplot{2}{zodata,veldix}{width=0.45\columnwidth}{Viking - (a) Zero-offset shot (b) Dix Velocity for Migration}
 
 Noted that in the zero-offset data, we have area that we muted during the pre-processing (the area above 0.4s) Thus, the migrated image will have muted area in space domain near the surface too.The experiment shows that if we solve for $\mathbf{W}$, $\mathbf{Wf}$ using whole image, the result after applied deconvolution operator will have high frequency artifacts in the area where the data was muted originally.
 
@@ -92,10 +92,10 @@ The resolution improvement can be verified by examining the average frequency sp
 
 For closer inspection, the selected zoom-in sections are also provided in Figures \ref{fig:zm1},\ref{fig:zm2},\ref{fig:zm3},\ref{fig:zm4}
 
-\plot{zm1}{width=0.7\columnwidth}{Marmousi - Zoom-in comparison 1}
-\plot{zm2}{width=0.7\columnwidth}{Marmousi - Zoom-in comparison 2}
-\plot{zm3}{width=0.7\columnwidth}{Marmousi - Zoom-in comparison 3}
-\plot{zm4}{width=1.0\columnwidth}{Marmousi - Zoom-in comparison 4}
+\plot{zm1}{width=0.7\columnwidth}{Marmousi - Zoom-in comparison 1 between CG and Preconditioned CG}
+\plot{zm2}{width=0.7\columnwidth}{Marmousi - Zoom-in comparison 2 comparison between CG and Preconditioned CG}
+\plot{zm3}{width=0.7\columnwidth}{Marmousi - Zoom-in comparison 3 comparison between CG and Preconditioned CG}
+\plot{zm4}{width=1.0\columnwidth}{Marmousi - Zoom-in comparison 4 comparison between CG and Preconditioned CG}
 
 %
 
