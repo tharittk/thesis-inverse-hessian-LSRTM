@@ -1,0 +1,186 @@
+\newcommand{\rs}[1]{\mathstrut\mbox{\scriptsize\rm #1}}
+\newcommand{\rr}[1]{\mbox{\rm #1}}
+\newcommand\inv[1]{#1\raisebox{1.15ex}{$\scriptscriptstyle-\!1$}} %matrix inverse
+
+\title{Inverse Hessian estimation in least-squares migration using chains of operators}
+\lefthead{Tangkijwanichakul \& Fomel}
+\righthead{Chain of operators}
+\footer{TCCS-21}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\author{Tharit Tangkijwanichakul, Sergey Fomel}
+
+
+\maketitle
+
+\section{Introduction}
+Least-squares migration (LSM) is a well-established technique for improving the quality of seismic imaging through inversion \cite[]{nemeth,ronen}. By formulating seismic imaging as a linear estimation problem, least-squares migration utilizes the power of iterative inversion for recovering the true reflectivity of subsurface structures.
+
+The least-squares formulation involves the inverse Hessian operator. The exact computation of such inversion can be prohibitively expansive. In the conventional approach, the inverse Hessian is approximated by iterative methods, such as conjugate gradients \cite[]{tarantola,sun,xue}. This raises the cost of LSM to the cost of migration and modeling multiplied by the number of iterations. Only a small number of iterations can be affordable in practice. 
+
+To reduce this cost or, alternatively, to reduce the number of iterations by accelerating the iterative convergence, a number of methods have been proposed in the literature for approximating the inverse Hessian using relatively inexpensive computations. \cite{rickett} estimates a simple scaling operator to approximate the inverse Hessian with a diagonal matrix. \cite{guitton} and \cite{greer} extend this approach to matching filters, approximating the inverse Hessian with a nonstationary convolution operator. This approach is also known as \emph{migration deconvolution} \cite[]{hu2001,yu2006}. \cite{aoki} approximate inverse Hessian with a deblurring filter for regularization and preconditioning scheme. \cite{kaur} adopt the deep learning technique and use generative adversarial networks in a conditional setting (CycleGANs) to approximate inverse Hessian.
+
+An asymptotic theory \cite[]{miller1987,bleistein1987} shows that the inverse Hessian can be represented as a combination of weights in the time domain and the frequency domain. The result extends to the case of LSRTM (least-squares reverse-time migration) \cite[]{hou15,hou16}. Motivated by this theory,
+we propose to approximate the inverse Hessian by reformulating the problem and simultaneously estimating a chain of weights in the space and frequency domains from initial images. We design this chain to be symmetric to preserve the symmetry of the Hessian.
+Once the weight matrices are estimated, they can be used to efficiently approximate the inverse Hessian. Alternatively, the approximated inverse Hessian can be incorporated in the form of a preconditioner to accelerate the convergence of iterative LSRTM.
+
+
+\section{Theory}
+Given subsurface seismic data $\mathbf{d}$, the first migrated image $\mathbf{m}_1$ is obtained by applying seismic migration as the adjoint of the forward linear modeling operator $\mathbf{L}$:
+\begin{equation}
+\label{eq:m1}
+    \mathbf{m}_1=\mathbf{L}^{T}\,\mathbf{d}\;.
+\end{equation}
+Next, we can model and migrate again, generating the second migrated image
+\begin{equation}
+\label{eq:m2}
+    \mathbf{m}_2=\mathbf{L}^{T}\,\mathbf{L\,m}_1
+\end{equation}
+We propose to approximate the connection between $\mathbf{m}_1$ and $\mathbf{m}_2$ in equation~(\ref{eq:m2}) using a chain of weights alternating between the original domain and the Fourier domain, as follows:
+\begin{equation}
+    \label{eq:wfw}
+    \mathbf{m}_2 \approx \mathbf{W\inv{F}W_{f}FW m}_1\;,
+\end{equation}
+where $\mathbf{W}$ and $\mathbf{W_f}$ are diagonal matrices, and $\mathbf{F}$ represents the Fourier transform. Our goal is to estimate $\mathbf{W}$ and $\mathbf{W_f}$ from the given pairs of $\mathbf{m}_1$ and $\mathbf{m}_2$.
+
+The deconvolutioned image can then be obtained as:
+\begin{equation}
+ \mathbf{
+m}_{3} = 
+\mathbf{\inv{W}\inv{F}\inv{W_f}F\inv{W} m}_1\;.
+\label{lsmig}
+\end{equation}
+ 
+
+ In the digital filtering terminology, the operation of $\mathbf{\inv{F}W_{f}F}$ is equivalent to convolution. Therefore, the proposed chain represents a combination of scaling and convolution in a symmetric setting. The symmetry is important because the Hessian operator $\mathbf{(L^T L)}$ , which we are approximating using this representation, is symmetric by definition. Once we obtain $\mathbf{W} $ and $ \mathbf{W_f }$ , inverting the chain to obtain the inverse Hessian is straightforward.
+ 
+To solve the nonlinear representation of chain of operators in equation~(\ref{eq:wfw}), we introduce intermediate vectors $\mathbf{x_1}$ and $\mathbf{x_2}$ and treat them as additional unknown variables, splitting the initial condition into three linear equations, as follows:
+\begin{equation}
+\begin{split}
+\mathbf{x_1 \approx Wm_{1}} \\
+\mathbf{x_2 \approx \inv{F}W_{f}Fx_1}\\
+\mathbf{m_{2} \approx Wx_2 } \\
+\end{split}
+\label{relax}
+\end{equation}
+In the vector notation,
+\begin{equation}
+\mathbf{r}= 
+\begin{bmatrix}
+\mathbf{W} & \mathbf{-I} & \mathbf{0} & \mathbf{0}\\
+\mathbf{0} & \mathbf{\inv{F}W_{f}} \mathbf{F} & \mathbf{-I} & \mathbf{0}\\
+\mathbf{0} & \mathbf{0} & \mathbf{W}  & \mathbf{-I}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{m_1} \\
+\mathbf{x_1} \\
+\mathbf{x_2} \\
+\mathbf{m_2}
+\end{bmatrix}
+\approx \mathbf{0} \;,
+\label{res_chain}
+\end{equation}
+and the solution is found by minimizing the residual vector $\mathbf{r}$ while updating $\mathbf{W}$, $\mathbf{W_f}$, $\mathbf{x_1}$, and $\mathbf{x_2}$. Linearizing equation~(\ref{res_chain}) with respect to perturbations in unknown variables, we arrive at
+\begin{equation}
+\begin{bmatrix}
+\mathbf{-I} & \mathbf{0} & \mathbf{diag[m_1]} & \mathbf{0}\\
+\mathbf{\inv{F}W_{f}F} & \mathbf{-I} & \mathbf{0} & \mathbf{\inv{F}diag[Fx_1]}\\
+\mathbf{0} & \mathbf{W} & \mathbf{diag[x_2]}  & \mathbf{0}
+\end{bmatrix}
+\begin{bmatrix}
+\mathbf{\delta x_1} \\
+\mathbf{\delta x_2} \\
+\mathbf{\delta W} \\
+\mathbf{\delta W_f}
+\end{bmatrix}
+\approx \mathbf{-r} 
+\label{linearized_chain}
+\end{equation}
+We solve (\ref{linearized_chain}) using the conjugate-gradient method with shaping regularization that enforces the smoothness of estimated variables \cite[]{shaping}, then update $\mathbf{W}$, $\mathbf{W_f}$, and recalculate residual $\mathbf{r}$ in (\ref{res_chain}) iteratively until  convergence. This corresponds to a regularized Gauss-Newton approach for solving the original nonlinear system \cite[]{ls}.
+
+Subsequently, we propose to apply the weights $\mathbf{W}$ and $\mathbf{W_{f}}$ to form a preconditioner to speed up the convergence of iterative least-square migration. The original problem is to solve for $\mathbf{m}$ where $\mathbf{d \approx Lm}$. We apply the change of variables from $\mathbf{m}$ to $\mathbf{y}$ according to $\mathbf{m} = \mathbf{Py}$ where $\mathbf{P}$ is the preconditioning matrix. We then solve for $\mathbf{y}$ with the least-square objective function 
+\begin{equation}
+     J(\mathbf{y}) = \frac{1}{2} || \mathbf{(LP)y - d) }||_2 ^2\;,
+\end{equation}
+which corresponds to the analytical solution
+\begin{equation}
+    \mathbf{y = \inv{(P^{T}L^{T}LP)}P^{T}L^{T}d}\;.
+\label{sol_y}
+\end{equation}
+According to the approximation of Hessian operator $\mathbf{L^{T}L \approx W\inv{F}W_{f}FW}$
+\begin{equation} \label{precondition}
+\begin{split}
+    \mathbf{L^{T}L \approx W\inv{F}W_{f}FW} \\
+            \mathbf{=  \inv{(PP^{T})}}\;,
+\end{split}
+\end{equation}
+the preconditioner $\mathbf{P}$ can be constructed from chain weights as
+\begin{equation}
+    \mathbf{P = \inv{W}\inv{F}W_{f}^{-1/2}F}\;.
+\label{prec}
+\end{equation}
+This makes the inverted operator in equation~(\ref{sol_y}) close to unitary,
+\begin{equation}
+    \mathbf{(LP)^{T}LP \approx I}\;,
+\end{equation}
+which accelerates the convergence when the inversion is carried out by an iterative method.
+
+\section{Results}
+
+\subsection{Post-stack Decovolution Example}
+We use the synthetic Marmousi data to test the proposed method. The shot gathers and migration velocity is show in Figure \ref{fig:mmbshots45,velmig}.
+
+\multiplot{2}{mmbshots45,velmig}{width=0.45\columnwidth}{ (a) Shot gathers (b) Migration velocity for prestack migration }
+
+\plot{mmbmig1}{width=0.6\columnwidth}{RTM Image}
+
+
+The reverse-time migrated image is obtained using finite-difference wave propagator, shown on Figure \ref{fig:mmbmig1}. After we obtain the sencond migrated image $\mathbf{m_2}$ by remodeling and remigartion exercise ($\mathbf{L^{T}L}$) to $\mathbf{m_1}$, we form the initial weights $\mathbf{W_0}$ by taking the square-root of smooth division $\mathbf{\frac{m_2}{m_1}}$. This $\mathbf{W_0}$ along with $\mathbf{W_{f0}}$will serve as a starting point for the chain solver.
+
+We run the chain solver to estimate $\mathbf{W}$ and $\mathbf{W_f}$ for different numbers of iterations. The residual is about 1.9 $\%$, 0.23 $\%$, 0.21 $\%$ of the zeroth iteration (i.e. with $\mathbf{W}$ = $\mathbf{W_0}$ and $\mathbf{W_f} = \mathbf{I}$) after 2, 5, 10 iterations respectively. These weights are shown in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10}. Notice that the weights in space domain $\mathbf{W^{-1}}$ does not change much after more iterations, contrasting to the behavior of the weight in frequency domain $\mathbf{W_f^{-1}}$
+
+Subsequently, we used chain weights to perform poststack deconvolution as prescribed in equation (\ref{lsmig}). The results in Figure \ref{fig:decon2,decon5,decon10}show an immediate improvement in resolution over that of the initial RTM image. The deconvolved image with 5 iterations has higher resolution compared to the one run with 2 iterations. However, the image with 5 iterations gives a smoother image. This may be from the the fact that we get smoother freqeuncy weight $\mathbf{Wf^{-1]}}$ in the area where data mostly reside in Fourier domain i.e. 90° dip in (kx,kz) space.
+
+
+\multiplot{3}{iw,iw5,iw10}{width=0.3\columnwidth}{$\mathbf{W^{-1}}$ 2, 5, 10 iteration of update}
+
+\multiplot{3}{iwf,iwf5,iwf10}{width=0.3\columnwidth}{$\mathbf{W_f^{-1}}$ 2, 5, 10 iteration of update}
+
+\multiplot{3}{decon2,decon5,decon10}{width=0.3\columnwidth}{Poststack Deconvolution Image 2, 5, 10 iteration of update}
+%
+
+\subsection{Preconditioned LSRTM Example}
+We use the weights in Figure \ref{fig:iw,iw5,iw10} and \ref{fig:iwf,iwf5,iwf10} to form a preconditioner according to equation (\ref{prec}). In particular, we chose the weights obtained after 2 update iterations. This choice was not made based on any technical preference. Rather, it was due to availibity of results at the time when this experiment (and its subsequence) was performed.
+
+Then, we perform least-square reverse time migration using conjugate gradients for 20 iterations. The result without and without preconditioner is shown in Figure \ref{fig:cgrad20,pgrad20}. The LSRTM image with precondtioner leads to a noticeable improvement in resolution. The amplitudes appear more balance, and the reflectors at greater depth are better illuminated. 
+
+\multiplot{2}{cgrad20,pgrad20}{width=0.45\columnwidth}{(a) LSRTM Image without and (b) with Preconditioner after 20 iterations}
+
+
+The resolution improvement can be verified by examining the average frequency spectrum of each image (Figure \ref{fig:spec}). LSRTM with preconditioner (pink curve) has the broadest bandwidth compared to LSRTM without preconditioner (red curve) and RTM image (blue curve). For closer inspection, the selected zoom-in sections are also provided in Figures \ref{fig:zm1} and \ref{fig:zm3}.
+
+
+\plot{spec}{width=0.5\columnwidth}{Frequency spectrum of migrated image - blue: standard RTM, red: LSRTM, pink: Precondition LSRTM}
+\plot{zm1}{width=0.7\columnwidth}{Zoom-in comparison 1 between CG and Preconditioned CG}
+\plot{zm3}{width=0.7\columnwidth}{Zoom-in comparison 2 comparison between CG and Preconditioned CG}
+
+
+
+Finally, we run LSRTM for 100 iterations. To quantify the improvement, the misfit in data domain (Figure \ref{fig:dres100}) is calculated using the $L_2$-norm of data residual $\mathbf{|| d_k - d ||_{2}}$ normalized by $\mathbf{||d ||_{2}}$. Here we also include the result of using only space weight $\mathbf{W}$ obtained from taking the square root of smooth division of $\frac{m_2}{m_1}$ while leaving $\mathbf{W_f}$ as $\mathbf{I}$ as precondtioner. This is the simplest form of preconditioner one can come up with.
+The plot confirms that the chain preconditioner leads to faster convergence while using space-only weight shows slight improvement in convergence. The LSRTM images after 100 iteration are shown in Figures \ref{fig:cgrad100,pgrad100,wwpgrad100}. 
+
+\plot{dres100}{width=0.5\columnwidth}{Normalize data misfit dash=without preconditioner solid(green)=with weight in space only solid(purple)=with chain preconditioner}
+
+
+\multiplot{3}{cgrad100,pgrad100,wwpgrad100}{width=0.45\columnwidth}{(a)LSRTM Image without Precondtitioner (b) with Preconditioner ($\mathbf{W}$,$\mathbf{Wf}$) (c) Preconditioner ($\mathbf{W}$ only )after 100 iterations }
+
+
+\section{Conclusions}
+
+We propose a novel approach to approximating the inverse Hessian operator in least-squares migration. The method is data-driven and involves solving for weights in the original and Fourier domains that match two subsequent migrated images using a chain of operators. Our synthetic example shows that the preconditioner formed by this approach can be used to accelerate iterative least-square migration. This results in the final image with improved resolution, balanced amplitudes, and a better data fit.
+
+Overall, this work serves as a proof of concept of our proposed method Chain of Operators. It shows that the complex operator can be effectively approximated through the chain of parameterized elementary operators - at least in the application of seismic least-square migration. The same principle works in machine learning with artificial neural networks, at a higher cost.
+
+
+\bibliographystyle{seg}
+\bibliography{reference}
+
