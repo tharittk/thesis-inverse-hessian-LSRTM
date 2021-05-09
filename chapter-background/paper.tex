@@ -16,7 +16,7 @@
 
 \plot{chain}{width=0.8\columnwidth}{Schematic drawing of chain of operators}
 
-The motivation behind the idea of the chain of operators is that one can approximate the complex operator through the chain of parameterized elementary operators. As illustrated in Figure \ref{fig:chain}, the input source is related to target through the chain of parameterized elemtary operator (green). Between each of these elementary operators are predetermined function (grey) chosen appropriately for the domain of application. In this work as motivated by asymtotic theory mentioned earlier, this predermined function is a Fouurier (and Inverse Fourier) Transform.
+The motivation behind the idea of the chain of operators is that one can approximate the complex operator through the chain of parameterized elementary operators. As illustrated in Figure \ref{fig:chain}, the input source is related to the target through the chain of parameterized elementary operators (green). Between each of these elementary operators are predetermined function (grey) chosen appropriately for the domain of application. In this work as motivated by the asymptotic theory mentioned earlier, this predetermined function is a Fourier (and Inverse Fourier) Transform.
 
 \subsection*{Problem formulation}
 Given surface seismic data $\mathbf{d}$, the first migrated image $\mathbf{m}_1$ is obtained by applying seismic migration as the adjoint of forward linear modeling operator $\mathbf{L}$:
@@ -51,7 +51,7 @@ We propose to approximate the connection between $\mathbf{m}_1$ and $\mathbf{m}_
     \label{eq:wfw}
     \mathbf{m}_2 \approx \mathbf{W\inv{F}W_{f}FW m}_1\;,
 \end{equation}
-where $\mathbf{W}$ and $\mathbf{W_f}$ are diagonal matrices, and $\mathbf{F}$ represents the Fourier transform. $\mathbf{W}$ represents the weighting factor that match the amplitude of the $\mathbf{m_1}$ and that of $\mathbf{m_2}$ in the original domain of the image (time or depth). $\mathbf{W_f}$ $\mathbf{W_f}$ is a weigting factor (or filter) that match the frequency of those two corresponding images. Our goal is to estimate $\mathbf{W}$ and $\mathbf{W_f}$ from the given pairs of $\mathbf{m}_1$ and $\mathbf{m}_2$,
+where $\mathbf{W}$ and $\mathbf{W_f}$ are diagonal matrices, and $\mathbf{F}$ represents the Fourier transform. $\mathbf{W}$ represents the weighting factor that matches the amplitude of the $\mathbf{m_1}$ and that of $\mathbf{m_2}$ in the original domain of the image (time or depth). $\mathbf{W_f}$ $\mathbf{W_f}$ is a weighting factor (or filter) that matches the frequency of those two corresponding images. Our goal is to estimate $\mathbf{W}$ and $\mathbf{W_f}$ from the given pairs of $\mathbf{m}_1$ and $\mathbf{m}_2$,
 
  In the digital filtering terminology, the operation of $\mathbf{\inv{F}W_{f}F}$ is equivalent to convolution. Therefore, the proposed chain represents a combination of scaling and convolution in a symmetric setting. The symmetry is important because the Hessian operator $\mathbf{(L^T L)}$ , which we are approximating using this representation, is symmetric by definition. 
  
@@ -112,7 +112,7 @@ and the solution is found by minimizing the residual vector $\mathbf{r}$ while u
 \end{equation}
 We solve (\ref{linearized_chain}) using the conjugate-gradient method with shaping regularization that enforces the smoothness of estimated variables \cite[]{shaping}, then update $\mathbf{W}$, $\mathbf{W_f}$, and recalculate residual $\mathbf{r}$ in (\ref{res_chain}) iteratively until  convergence. This corresponds to a regularized Gauss-Newton approach for solving the original nonlinear system. 
 
-Noted that to choose the step size in the updating scheme, we use a simple binary-search of step size. After obtaining the update vector from (\ref{linearized_chain}), we update the variables using step size = 1.0. Then, we check if the residual decreases or not. If does not, we rollback the variables and update them using step size = 0.5. We repeat this fashion until the residual decreases. See the Appendix for complete code implemtation (chain2dfft.c and Mchain2dfft.c)
+Noted that to choose the step size in the updating scheme, we use a simple binary search of step size. After obtaining the update vector from (\ref{linearized_chain}), we update the variables using step size = 1.0. Then, we check if the residual decreases or not. If it does not, we roll back the variables and update them using step size = 0.5. We repeat this fashion until the residual decreases. See the Appendix for complete code implementation (chain2dfft.c and Mchain2dfft.c)
 
 
 It is clear that solving (~\ref{eq:wfw}) is not guaranteed to achieve global minimum as the equation is non-convex with respect to $\mathbf{W}$ and $\mathbf{W_f}$. To mitigate the problem of being subjected to local minima, the initial guess $\mathbf{W_0}$ and $\mathbf{W_f0}$ are supplied to the algorithms. To initialize the initial time/space weight $\mathbf{W}$, we use a smooth division of $\mathbf{m_2}$ by $\mathbf{m_1}$ \cite[]{local} and then take a square root. We set the initial frequency weight $\mathbf{W_f}$ to 1.0.
