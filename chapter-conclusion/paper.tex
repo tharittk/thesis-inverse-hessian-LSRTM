@@ -7,25 +7,25 @@
 %\section{Summary}
 
 
-In this work, I have proposed a novel approach to approximating the inverse Hessian operator in least-squares migration. The method is data-driven and involves solving for weights in the original and Fourier domains that match two subsequent migrated images using the proposed method "Chain of Operators". The approximated inverse Hessian can be applied either as a non-stationary decovolution filter to the migrated image or used to form a preconditioner for iterative prestack least-squares migration.
+In this work, I have proposed a novel approach to approximating the inverse Hessian operator in least-squares migration. The method is data-driven and involves solving for weights in the original and Fourier domains that match two subsequent migrated images using the proposed method "Chain of Operators". The approximated inverse Hessian can be applied either as a non-stationary deconvolution filter to the migrated image or used to form a preconditioner for iterative prestack least-squares migration.
 
- My synthetic-data experiments show the promising results in some cases and also reveals the challenges to the usability and limits of the algorithm. In the case that the algorithm work well, the results in the final image have significantly improved resolution, balanced amplitudes, and a better data fit.
+ My synthetic-data experiments show promising results in some cases and also reveals the challenges to the usability and limits of the algorithm. In the case that the algorithm works well, the results in the final image have significantly improved resolution, balanced amplitudes, and a better data fit.
 
  Overall, this work serves as a proof of concept of our proposed method Chain of Operators. It shows that the complex operator can be effectively approximated through the chain of parameterized elementary operators - at least in the application of seismic least-square migration. The same principle works in machine learning with artificial neural networks, at a higher cost.
 
 
 
 \section{Future work}
-For this particular application, we hope to further investigate the effectiveness of the algorithm with the real field-size prestack datasets. It is also worth studying alternative schemes of solving for the chain weights besides the regularized Gauss-Newton approach.
+For this particular application, we hope to further investigate the effectiveness of the algorithm with the real field-size prestack datasets. It is also worth studying alternative schemes of solving for the chain weights beside the regularized Gauss-Newton approach.
 
-In the field of seismic processing, the idea of chain of operators may find many other promising applications. One area is to find the seismic shift between to two seismic datasets \cite[]{liner2004nonlinear}. We can represent a small shift in seismic trace by one elemetary operator. Then, the bigger shift will become the chain of this small shift operators.
+In the field of seismic processing, the idea of the chain of operators may find many other promising applications. One area is to find the seismic shift between two seismic datasets \cite[]{liner2004nonlinear}. We can represent a small shift in the seismic trace by one elementary operator. Then, the bigger shift will become the chain of these small shift operators.
 
 
 It is also worth emphasizing that the idea of the chain of operators is not limited to the field of seismic processing. As we can see from the motivation, it follows from the generality of the hypothesis that "the complex operator can be effectively approximated through the chain of parameterized elementary operators".
 
 \appendix
 \section{Code}
-Below is the source of the code of the programs that were newly devoloped for this project. In particular, Mchain2dfft.c and chain2dfft.c are the programs for solving for weights in space and frequency domain. Mtf2dprec.c and tf2dprec.c are the subroutine that is used to implement a preconditioning in a Conjugate-gradient solver. The library used in those can be found at Madagascar open-source software environment for reproducible computational experiments \cite[]{madagascar}. The package is available at \url{http://www.ahay.org/}.
+Below is the source of the code of the programs that were newly developed for this project. In particular, Mchain2dfft.c and chain2dfft.c are the programs for solving for weights in space and frequency domain. Mtf2dprec.c and tf2dprec.c are the subroutine that is used to implement preconditioning in a Conjugate-gradient solver. The library used in those can be found at Madagascar open-source software environment for reproducible computational experiments \cite[]{madagascar}. The package is available at \url{http://www.ahay.org/}.
 
 
 \definecolor{mygreen}{rgb}{0,0.5,0}
@@ -44,7 +44,7 @@ Below is the source of the code of the programs that were newly devoloped for th
   breaklines=true,                 % sets automatic line breaking
   commentstyle=\color{c5},    % comment style
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  frame=single,	                   % adds a frame around the code
+  frame=single,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   language=Python,                 % the language of the code
   deletecomment={[s]{'''}{'''}},
@@ -57,7 +57,7 @@ Below is the source of the code of the programs that were newly devoloped for th
   showtabs=false,                  % show tabs within strings adding particular underscores
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{c2},     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
+  tabsize=2,                     % sets default tabsize to 2 spaces
   keywords=[1]{from,for,if,in,import,def},
   keywords=[2]{Flow,Fetch},
   keywords=[3]{Result,Plot},
