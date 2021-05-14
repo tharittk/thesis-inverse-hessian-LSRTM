@@ -1,0 +1,226 @@
+from rsf.proj import *
+
+from rsf.gallery import marmousi
+
+#############
+# Data preparation
+nz=751
+dz=0.004
+nt=3501
+dt=0.001
+nx=2301
+dx=0.004
+# True stratigraphic velocity model
+marmousi.getvel('vel')
+Flow('xMap',None,'math n1=1 d1=1.0 n2=1150 d2=0.008 output=x1')
+Flow('xpat','xMap','window n1=1')
+Flow('yMap',None,'math n1=376 d1=0.008 n2=1 d2=1.0 output=x1')
+Flow('ypat','yMap','window n2=1')
+Flow('velX','vel xpat',
+     '''
+     transp | math output=1/input |
+     remap1 pattern=${SOURCES[1]} | 
+     math output=1/input | transp
+     ''')
+Flow('velXY','velX ypat',
+     '''
+     math output=1/input |
+     remap1 pattern=${SOURCES[1]} | 
+     math output=1/input
+     ''')
+Result('velXY','grey title="course grid vel XY" color=j mean=y bias=1.5')
+# Get slowness
+Flow('slowness','velXY','math output=1/input')
+
+# Smooth slowness
+Flow('slowness-s','slowness','smooth rect1=15 rect2=15')
+Flow('ss-true','slowness','smooth rect1=2 rect2=2')
+
+# vel for modeling shots (true data)
+Flow('vel-true','ss-true','math output=1/input')
+Result('vel-true','grey scalebar=y color=j allpos=y title="True Str Velocity Model" bias=1.5 barreverse=y ')
+# vel for migration
+Flow('vel-mig','slowness-s','math output=1/input')
+Result('vel-mig','grey scalebar=y color=j allpos=y title="Smooth Velocity Model" bias=1.5 barreverse=y ')
+
+# Get reflectivity
+Flow('refl','velXY',
+     '''
+     depth2time velocity=$SOURCE nt=%d dt=%g |
+     ai2refl | ricker1 frequency=20 | time2depth velocity=$SOURCE
+     ''' %(nt,dt))
+Result('refl','grey title="True Reflectivity"')
+
+
+# After file reduction
+nz = 376
+dz = 0.008
+nx = 1150
+dx = 0.008
+nt = 4500
+dt = 0.0007
+
+# Source wavelet
+Flow('wavelet',None,
+     '''
+     spike nsp=1 n1=%d d1=%g k1=50|
+     ricker1 frequency=20
+     '''%(nt,dt))
+
+#
+
+# Run MPI Jobs: born0 rtm0 born1 rtm1
+
+#
+Result('shots45','grey title="shots45"')
+Flow('bshots45','shots45','bandpass flo=4')
+Result('bshots45','grey title="shots45 - low freq removed"')
+
+Result('mig1_45','grey title="mig1_45 shots raw"')
+Flow('bmig1_45','mig1_45','bandpass flo=4')
+Result('bmig1_45','grey title="mig1_45 shots - low freq removed"')
+
+Result('dat1_45','grey title="dat1_45 - raw"')
+Flow('bdat1_45','dat1_45','bandpass flo=4')
+Result('bdat1_45','grey title="shot45 - low freq removed"')
+
+Result('mig2_45','grey title="mig2_45 shots raw"')
+Flow('bmig2_45','mig2_45','bandpass flo=4')
+Result('bmig2_45','grey title="mig2_45 shots - low freq removed"')
+
+###  Chain of operators #
+# Rename for using old SCon script
+Flow('smig1','bmig1_45','math output=input')
+Flow('smig2','bmig2_45','math output=input')
+
+
+Flow('init-w','smig2 smig1',
+     '''
+     divn den=${SOURCES[1]} rect1=100 rect2=100 | math "output=sqrt(input)"
+     ''')
+Result("init-w",'grey color=j mean=y scalebar=y barlabel="" barunit="" title="w0"')
+
+# For space only weighting
+Flow('sqr-ww','smig1 smig2',
+    '''
+    divn den=${SOURCES[1]} rect1=100 rect2=100 | math "output=sqrt(input)"
+    ''')
+Result('sqr-ww','grey title="Space weight only" color=j mean=y scalebar=y')
+
+# For frequency only weighting
+Flow('fmig1','smig1','fft1 | fft3 axis=2 pad=1 | real')
+Flow('fmig2','smig2','fft1 | fft3 axis=2 pad=1 | real')
+
+Result('fmig1','grey colo=j scalebar=y title=fmig1')
+Result('fmig2','grey colo=j scalebar=y title=fmig2')
+
+
+Flow('wff','fmig1 fmig2','divn den=${SOURCES[1]} rect1=100 rect2=100')
+Flow('w11','smig1','math output=1.0')
+Result('wff','grey scalebar=y color=j title="Freq W"')
+Result('w11','grey color=j title="Space W 1.0"')
+
+# Initial model for wf 2D
+Flow('init-wf2d', 'smig1',
+     '''
+     fft1 | fft3 axis=2 pad=1 | real 
+  | math output=1.0
+     ''')
+
+niter=2
+
+# Chain operators - 2D Fourier Transform
+
+for i in [2,5,10]:
+
+    Flow('w%s wf%s match%s', 'smig1 smig2 init-w init-wf2d',
+         '''
+         chain2dfft target=${SOURCES[1]} fweight=${TARGETS[1]} match=${TARGETS[2]}
+         init_w=${SOURCES[2]} init_wf=${SOURCES[3]}
+         rect1=20 rect2=20 frect1=20 frect2=20 niter=%d liter=100
+         '''%(str(i),str(i),str(i),niter)
+
+    Flow('iw%s','w%s','math output=1/input'%(str(i),str(i)))
+    Flow('iwf%s','wf%s','math output=1/input'%(str(i),str(i)))
+    Flow('sqr-iwf%s','iwf%s','math "output=sqrt(input)"'%(str(i),str(i)))
+    Flow('iwf2%s','iwf%s','rtoc'%(str(i),str(i)))
+    Result('iw%s','iw%s', 'grey title="iw-2d" mean=y color=j scalebar=y barlabel="weight" barunit=""'%(str(i),str(i)))
+    Result('iwf%s','iwf%s', 
+      '''
+      put label1=kz unit1=1/km label2=kx unit2=1/km  |
+      grey title="iwf-2d" mean=y color=j scalebar=y barlabel="weight" barunit=""
+      '''%(str(i),str(i)))
+
+    Flow('decon%s','smig1 iw%s iwf2%s',
+      '''
+      mul ${SOURCES[1]} | fft1 | fft3 axis=2 pad=1 | mul ${SOURCES[2]} | fft3 axis2 inv=y | fft1 inv=y | mul ${SOURCES[1]}
+      '''%(str(i),str(i),str(i)))
+
+    Result('decon%s','decon', 'grey title="postDecon by chain 2D"'%(str(i)))
+
+
+Flow('model0','smig1','math output=0.0')
+
+#
+
+# Run LSRTM jobs: j_cgrtm, j_pcgrtm
+# Change iter 20 -> 100
+
+#
+
+# Result (starting model = model0.rsf)
+
+Result('cgrad_out0','grey title="LSRTM CG 20 iters (start 0)"')
+Result('pcgrad_out0','grey title="LSRTM PCG 20 iters (start 0)"')
+
+Result('cgrad_out0_100','grey title="LSRTM CG 100 iters"')
+Result('pcgrad_out0_100','grey title="LSRTM PCG 100 iters"')
+Result('wwpcgrad_out0_100','grey title="LSRTM Space only PCG 100 iters"')
+
+# Spectra
+for i in range(3):
+    case = ('bmig1_45','cgrad_out0','pcgrad_out0')[i]
+    Plot(case+'Spec',case,
+     '''
+     spectra all=y | scale axis=2 | put label2=RelativeScale unit2="" 
+     | graph title="Average frequency spectrum by Trace" plotcol=%d dash=0 plotfat=4
+     ''' % (6-i))
+# yellow = 6 
+# blue = 5
+# green = 4
+Result('spec','bmig1_45Spec cgrad_out0Spec pcgrad_out0Spec','Overlay')
+
+
+# Zoom-in
+Plot('z-cg','cgrad_out0','window min1=1.0 max1=2.0 min2=2.0 max2=4.0 | grey title="Zoom CG"')
+Plot('z-pcg','pcgrad_out0','window min1=1.0 max1=2.0 min2=2.0 max2=4.0 | grey title="Zoom PCG"')
+Result('z-ls', 'z-cg z-pcg', 'SideBySideIso')
+
+
+Plot('z-cg2','cgrad_out0','window min1=2.0 max1=3.0 min2=5.5 max2=7.5 | grey title="Zoom CG"')
+Plot('z-pcg2','pcgrad_out0','window min1=2.0 max1=3.0 min2=5.5 max2=7.5 | grey title="Zoom PCG"')
+Result('z-ls2', 'z-cg2 z-pcg2', 'SideBySideIso')
+
+Plot('z-cg3','cgrad_out0','window min1=0.5 max1=1.5 min2=5.0 max2=8.0 | grey title="Zoom CG"')
+Plot('z-pcg3','pcgrad_out0','window min1=0.5 max1=1.5 min2=5.0 max2=8.0 | grey title="Zoom PCG"')
+Result('z-ls3', 'z-cg3 z-pcg3', 'SideBySideIso')
+
+
+
+Plot('z-cg4','cgrad_out0_100','window min1=1.5 max1=2.5 min2=0.5 max2=2.5 | grey title="Zoom CG"')
+Plot('z-pcg4','pcgrad_out0_100','window min1=1.5 max1=2.5 min2=0.5 max2=2.5 | grey title="Zoom PCG"')
+Plot('z-rfl','refl','window min1=1.5 max1=2.5 min2=0.5 max2=2.5 | grey title="Zoom Refl"')
+
+Result('z-salt', 'z-rfl z-cg4 z-pcg4', 'SideBySideIso')
+
+# Process the residual txt file from TACC using Textproc.py then,
+
+Result('dres_lsrtm100','dres_cg100 dres_pcg100 dres_wwpcg100','''
+  cat axis=2 ${SOURCES[1:3]} | graph title="L2-norm Data Residual" 
+  label2="Data misfit" label1="Iterations"
+  unit2="" unit1="" plotcol=5,4,3 dash=1,0,0 plotfat=10
+  ''')
+
+End()
+
+

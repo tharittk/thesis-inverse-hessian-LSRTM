@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#-------------------------------
+# Generic SLURM script  -- MPI
+#-------------------------------
+
+#SBATCH -J rtm0           # Job name
+#SBATCH -o rtm0.o.%j      # Output file (%j expands to jobID)
+#SBATCH -e rtm0.e.%j      # Error file (%j expands to jobID)
+#SBATCH -p normal     # Queue name
+#SBATCH -N 45              # Nodes requested
+#SBATCH -n 45              # Total number of mpi tasks requested
+#SBATCH -t 01:00:00        # Run time (hh:mm:ss)
+#SBATCH -A TCCS            # Project account name
+#SBATCH --mail-user=tharit.tangkij@utexas.edu # Email address
+#SBATCH --mail-type=begin  # email me when the job starts
+#SBATCH --mail-type=end    # email me when the job finishes
+
+export OMP_NUM_THREADS=12
+ibrun tacc_affinity sfmpifdlsrtm input=bshots45.rsf wavelet=wavelet.rsf velocity=vel-mig.rsf nr=1150 dr=0.008 r0=0 ns=45 ds=0.2 s0=0.0 adj=1 verb=y output=mig1_45.rsf
